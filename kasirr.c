@@ -1,6 +1,8 @@
 #include <stdio.h> //Header Standar Input/Output dalam C
 
 //Deklarasi fungsi yang digunakan dalam program ini
+void loginAdmin();
+void headerMenu();
 float daftarMenu(int total);
 float mendapatkanDiskon(int total, int discount);
 float potonganHarga(int discount, int harga, int total);
@@ -9,6 +11,8 @@ float hargaAkhir(int harga, int total, int harga_akhir);
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main()
 {
+    void loginAdmin();
+    void headerMenu();
     int a;
     float total = daftarMenu(a);
     int c;

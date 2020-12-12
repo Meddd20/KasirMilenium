@@ -1,4 +1,5 @@
 #include <stdio.h> //Header Standar Input/Output dalam C
+#include <time.h> // Header dalam C untuk memanipulasi waktu
 
 //Deklarasi fungsi yang digunakan dalam program ini
 void loginAdmin();

@@ -6,7 +6,6 @@ float mendapatkanDiskon(int total, int discount);
 float potonganHarga(int discount, int harga, int total);
 float hargaAkhir(int harga, int total, int harga_akhir);
 
-
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main()
 {
@@ -20,6 +19,84 @@ int main()
     float harAkh = hargaAkhir(potHar, total, i);
 
 }
+
+//==========================Fungsi Header Menu===========================//
+//=======================================================================//
+// Nama Fungsi    : Header Menu                                          //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Memberikan header pada setiap halaman dan menu       //
+//                  yang dipilih, disertai dengan tanggal dan waktu      //
+//                  secara realtime                                      //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 09-12-2020                               Tgl: 09-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//=======================================================================//
+
+void headerMenu()
+{
+    struct tm *Sys_T;
+    time_t Tval;
+    Tval = time (NULL);
+    Sys_T = localtime (&Tval);
+
+    printf ("================================================================================\n");
+    printf ("\t\t\t      KEDAI PEMERSATU BANGSA\n");
+    printf ("\t\t\t Jl. Pantai Berawa No. 888, Bali\n");
+    printf ("\t\t\t\t   Developed By : \n");
+    printf ("\t\t\t     2005551044 - Medhiko Biraja\n");
+    printf ("\t\t2005551151 - I Gusti Made Agung Ary Surya Persada\n");
+    printf ("\t\t\t2005551087 - A.A. Krisnha Wirayudha\n");
+    printf ("\t\t\t      %s", asctime (Sys_T));
+    printf ("================================================================================");
+}
+
+//==========================Fungsi Login Admin===========================//
+//=======================================================================//
+// Nama Fungsi    : Login Admin                                          //
+// Input Argumen  : char konfirmasiAkun                                  //
+// Output Argumen : -                                                    //
+// Deskripsi      : Meminta menampilkan username dan password admin      //
+//                  yang diberikan pertama kali dan merupakan akun       //
+//                  default                                              //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 09-12-2020                               Tgl: 09-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//=======================================================================//
+void loginAdmin()
+{
+    char usrnm[5], pass[12];
+    int status = 0;
+    int salah = 0;
+    char nama;
+    char konfirmasiAkun;
+
+    printf ("Sudah Punya Akun? Login Disini! (Y/N)");
+    scanf ("%c", &konfirmasiAkun);
+
+    if (konfirmasiAkun == 'Y' || konfirmasiAkun == 'y'){
+        Login :
+        printf ("Username : ");
+        scanf ("%s", &usrnm);
+        printf ("Password : ");
+        scanf ("%s", &pass);
+
+        if (strcmp (usrnm, "admin")==0 && strcmp (pass, "12345")==0){
+            system ("cls");
+            printf ("Selamat Datang, %s\n", usrnm);
+        }else {
+            system ("cls");
+            printf ("Username atau Password yang Anda Masukkan Salah!\n");
+            goto Login;
+        }
+    return 0;
+    }
+}
+
 //==========================Fungsi Daftar Menu===========================//
 //=======================================================================//
 // Nama Fungsi    : Daftar Menu                                          //

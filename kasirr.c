@@ -334,6 +334,21 @@ float daftarMenu(int total)
         printf(" ==> Silakan input kembali\n");
         goto kategori1;
     }
+    
+//==========================List Pesanan=================================//
+//=======================================================================//
+// Nama           : List Pesanan                                         //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Lanjutan dari fungsi daftar menu berfungsi untuk     //
+//                  Menampilkan nama serta jumlah pesanan sementara      // 
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 02-12-2020                               Tgl: 02-12-2020      //
+// A.A. Krisnha Wirayudha - 2005551087                                   //
+// Kelas B                                                               //
+//=======================================================================//
+    
     printf("\nIngin Memesan Lagi?\n");
     printf("(1) Ya,\n(2) Tidak");
     printf("\nPilihan Anda : ");
@@ -482,4 +497,135 @@ float hargaAkhir(int harga, int total, int harga_akhir){
     printf("+Terimakasih Telah Berbelanja+\n");
     printf("+============================+\n");
 return harga_akhir;
+}
+
+//==========================Fungsi Struk Pesanan=========================//
+//=======================================================================//
+// Nama Fungsi    : Struk Pesanan                                        //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan list pesanan antara lain : Nama Pesanan, //
+//                  Jumlah, Harga, Total Harga, Diskon, serta Harga Akhir// 
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 13-12-2020                               Tgl: 13-12-2020      //
+// A.A. Krisnha Wirayudha - 2005551087                                   //
+// Kelas B                                                               //
+//=======================================================================//
+
+float struk(int total, int discount, int harga_akhir){
+
+    int h1, h2, h3, h4, h5;
+    int m1, m2, m3, m4, m5;
+    int c1, c2, c3, c4, c5;
+    int j1, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, j15;
+    int t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15;
+
+    printf("============================================\n");
+    printf("\n\t\t\t KEDAI PEMERSATU BANGSA \n");
+    printf("\n\t\t\t STRUK BELANJA \n\n");
+    printf("============================================\n");
+    printf("\n\n");
+    printf("============================================\n");
+    printf("Nama Pesanan \t\t | Jumlah \t | Harga\t | Total\t |\n");
+    printf("============================================\n");
+    if(j1>0){
+            printf("Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", h1, j1, t1);
+        }else{}
+
+        if(j2>0){
+            printf("Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", h2, j2, t2);
+        }else{}
+
+        if(j3>0){
+            printf("Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", h3, j3, t3);
+        }else{}
+
+        if(j4>0){
+            printf("Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", h4, j4, t4);
+        }else{}
+
+        if(j5>0){
+            printf("Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", h5, j5, t5);
+        }else{}
+
+        if(j6>0){
+            printf("Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", m1, j6, t6);
+        }else{}
+
+        if(j7>0){
+            printf("Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", m2, j7, t7);
+        }else{}
+
+        if(j8>0){
+            printf("Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", m3, j8, t8);
+        }else{}
+
+        if(j9>0){
+            printf("Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", m4, j9, t9);
+        }else{}
+
+        if(j10>0){
+            printf("Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", m5, j10, t10);
+        }else{}
+
+        if(j11>0){
+            printf("Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c1, j11, t11);
+        }else{}
+
+        if(j12>0){
+            printf("Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c2, j12, t12);
+        }else{}
+
+        if(j13>0){
+            printf("Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c3, j13, t13);
+        }else{}
+
+        if(j14>0){
+            printf("Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c4, j14, t14);
+        }else{}
+
+        if(j15>0){
+            printf("Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", c5, j15, t15);
+        }else{}
+    printf("============================================\n");
+    printf("Total Harga\t\t\t\t : Rp.%d\t\n",total);
+    printf("Diskon\t\t\t\t : %d\t\n persen", discount);
+    printf("Harga Akhir\t\t\t\t : Rp.%d\t\n", harga_akhir);
+    printf("============================================\n\n");
+
+    return 0;
+}
+
+//==========================Fungsi Transaksi=============================//
+//=======================================================================//
+// Nama Fungsi    : Transaksi                                            //
+// Input Argumen  : int uang                                             //
+// Output Argumen : kembalian                                            //
+// Deskripsi      : Menginputkan uang yang harus dibayar serta kembalian // 
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 13-12-2020                               Tgl: 13-12-2020      //
+// A.A. Krisnha Wirayudha - 2005551087                                   //
+// Kelas B                                                               //
+//=======================================================================//
+
+float transaksi(int uang, int kembalian, int harga_akhir){
+    Transaksi :
+    printf("Uang yang dibayar : ");
+    scanf("%d",&uang);
+    if(uang<harga_akhir){
+        printf("Uang tidak cukup!");
+            goto Transaksi;
+        
+        }
+        else{
+    kembalian = uang-harga_akhir;
+    printf("Kembalian : %d\n", kembalian);
+}
+    printf("\n\n=======Terima Kasih Atas Kunjungan Anda=======\n");
+    printf("=====Kami Nanti Kunjungan Anda Berikutnya=====\n");
+    printf("=================MERDEKA!=====================");
+
+    return 0;
 }

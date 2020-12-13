@@ -612,7 +612,7 @@ float struk(int total, int discount, int harga_akhir){
 
 float transaksi(int uang, int kembalian, int harga_akhir){
     Transaksi :
-    printf("Uang yang dibayar : ");
+    printf("Uang Pembayaran : ");
     scanf("%d",&uang);
     if(uang<harga_akhir){
         printf("Uang tidak cukup!");

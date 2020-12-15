@@ -523,7 +523,7 @@ float struk(int total, int discount, int harga_akhir){
 
     printf("============================================\n");
     printf("\n\t\t\t KEDAI PEMERSATU BANGSA \n");
-    printf("\n\t\t\t STRUK BELANJA \n\n");
+    printf("\n\t\t\t STRUK PESANAN \n\n");
     printf("============================================\n");
     printf("\n\n");
     printf("============================================\n");
@@ -621,7 +621,7 @@ float transaksi(int uang, int kembalian, int harga_akhir){
         }
         else{
     kembalian = uang-harga_akhir;
-    printf("Kembalian : %d\n", kembalian);
+    printf("Kembalian : Rp.%d\n", kembalian);
 }
     printf("\n\n=======Terima Kasih Atas Kunjungan Anda=======\n");
     printf("=====Kami Nanti Kunjungan Anda Berikutnya=====\n");

@@ -2,8 +2,8 @@
 #include <time.h> // Header dalam C untuk memanipulasi waktu
 
 //Deklarasi fungsi yang digunakan dalam program ini
-loginAdmin();
-headerMenu();
+void loginAdmin();
+void headerMenu();
 float daftarMenu(int total);
 float mendapatkanDiskon(int total, int discount);
 float potonganHarga(int discount, int harga, int total);
@@ -13,8 +13,8 @@ void tentangKami();
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main()
 {
-    void loginAdmin();
-    void headerMenu();
+    loginAdmin();
+    headerMenu();
     int a;
     float total = daftarMenu(a);
     int c;

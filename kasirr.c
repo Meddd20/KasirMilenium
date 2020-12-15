@@ -493,9 +493,7 @@ float hargaAkhir(int harga, int total, int harga_akhir){
     printf("=======================================================\n");
     printf("Total Harga yang Harus Dibayar Sebesar : Rp.%d         \n", harga_akhir);
     printf("=======================================================\n\n");
-    printf("+============================+\n");
-    printf("+Terimakasih Telah Berbelanja+\n");
-    printf("+============================+\n");
+
 return harga_akhir;
 }
 

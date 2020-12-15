@@ -8,6 +8,7 @@ float daftarMenu(int total);
 float mendapatkanDiskon(int total, int discount);
 float potonganHarga(int discount, int harga, int total);
 float hargaAkhir(int harga, int total, int harga_akhir);
+void tentangKami();
 
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main()
@@ -628,4 +629,35 @@ float transaksi(int uang, int kembalian, int harga_akhir){
     printf("=================MERDEKA!=====================");
 
     return 0;
+}
+
+//========================Fungsi Tentang Kami============================//
+//=======================================================================//
+// Nama Fungsi    : Tentang Kami                                         //
+// Input Argumen  :                                                      //
+// Output Argumen :                                                      //
+// Deskripsi      : Mendeskripsikan Developer dari program ini serta     //
+//                  Tujuan dari dubuatnya program ini                    //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 15-12-2020                               Tgl: 15-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//=======================================================================//
+
+void tentangKami()
+{
+    printf ("\n");
+    printf ("================================================================================");
+    printf ("\t\t\t\t    ABOUT US\n");
+    printf ("================================================================================");
+    printf ("DEVELOPER : \n\n");
+    printf ("A.A. Krisnha Wirayudha \t I Gusti Made Agung Ary Surya Persada \t Medhiko Biraja");
+    printf ("      2005551087                        2005551151                  2005551044  \n\n");
+    printf ("   Kami merupakan Mahasiswa Universitas Udayana dari Fakultas Teknik, Jurusan\n");
+    printf ("    Teknologi Informasi. Program ini kami buat bersama untuk memenuhi tugas \n");
+    printf ("\t\t  akhir semester dari Mata Kuliah Pemrograman. \n\n");
+    printf ("    Program ini ditujukan untuk Usaha Kecil Menengah (UKM) yang baru memulai\n");
+    printf ("\tusaha agar rekap penjualan yang dihasilkan setiap harinya menjadi\n");
+    printf ("\t\t\tlebih tertata dan lebih efisien.");
 }

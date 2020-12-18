@@ -1,6 +1,7 @@
 #include <stdio.h> //Header Standar Input/Output dalam C
 #include <time.h> // Header dalam C untuk memanipulasi waktu
 
+//Deklarasi variabel yang digunakan dalam fungsi ini
 int h1, h2, h3, h4, h5;
 int j1=0, j2=0, j3=0, j4=0, j5=0;
 int t1=0, t2=0, t3=0, t4=0, t5=0;
@@ -17,9 +18,10 @@ int uang;
 int kembalian;
 int total;
 int program;
-char nama;
-char alamat;
-char telepon;
+char nama[50];
+char alamat[50];
+char telepon[15];
+char supplier[50];
 int kembali;
 
 //Deklarasi fungsi yang digunakan dalam program ini
@@ -28,7 +30,8 @@ void headerMenu();
 float menuProgram();
 float daftarMenu();
 void produkKedai();
-float supplier();
+void dataSupplier();
+void fileSupplier();
 void tentangKami();
 float mendapatkanDiskon();
 float potonganHarga();
@@ -40,8 +43,7 @@ void tentangKami();
 
 
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
-int main()
-{
+int main(){
     loginAdmin();
 }
 
@@ -60,8 +62,7 @@ int main()
 // Kelas B                                                               //
 //=======================================================================//
 
-void headerMenu()
-{
+void headerMenu(){
     struct tm *Sys_T;
     time_t Tval;
     Tval = time (NULL);
@@ -92,8 +93,7 @@ void headerMenu()
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-void loginAdmin()
-{
+void loginAdmin(){
     char usrnm[5], pass[12];
     int status = 0;
     int salah = 0;
@@ -361,72 +361,75 @@ float daftarMenu(){
         goto hasil;
     }
      hasil :
-        printf("\nPesanan Anda :\n");
+        printf("\n+=======================================================================+\n");
+        printf("|Nama Pesanan \t\t\t|  Harga \t| Jumlah |    Total\t|\n");
+        printf("+=======================================================================+\n");
 
         if(j1>0){
-            printf("Nasi Telur : %d\n",j1);
+            printf("Nasi Telur\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h1, j1, t1);
         }else{}
 
         if(j2>0){
-            printf("Nasi Lele : %d\n",j2);
+            printf("Nasi Lele\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h2, j2, t2);
         }else{}
 
         if(j3>0){
-            printf("Nasi Goreng : %d\n",j3);
+            printf("Nasi Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h3, j3, t3);
         }else{}
 
         if(j4>0){
-            printf("Nasi Liwet : %d\n",j4);
+            printf("Nasi Liwet\t\t\t|Rp.%d\t|   %d\t |  Rp.%d\t|\n", h4, j4, t4);
         }else{}
 
         if(j5>0){
-            printf("Nasi Ayam : %d\n",j5);
+            printf("Nasi Ayam\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h5, j5, t5);
         }else{}
 
         if(j6>0){
-            printf("Es Teh : %d\n",j6);
+            printf("Es Teh\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m1, j6, t6);
         }else{}
 
         if(j7>0){
-            printf("Es Jeruk : %d\n",j7);
+            printf("Es Jeruk\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m2, j7, t7);
         }else{}
 
         if(j8>0){
-            printf("Es Susu : %d\n",j8);
+            printf("Es Susu\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m3, j8, t8);
         }else{}
 
         if(j9>0){
-            printf("Es Kopi : %d\n",j9);
+            printf("Es Kopi\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m4, j9, t9);
         }else{}
 
         if(j10>0){
-            printf("Es Buah : %d\n",j10);
+            printf("Es Buah\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m5, j10, t10);
         }else{}
 
         if(j11>0){
-            printf("Kentang Goreng : %d\n",j11);
+            printf("Kentang Gorengt\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c1, j11, t11);
         }else{}
 
         if(j12>0){
-            printf("Tahu Goreng : %d\n",j12);
+            printf("Tahu Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c2, j12, t12);
         }else{}
 
         if(j13>0){
-            printf("Tahu Bacem : %d\n",j13);
+            printf("Tahu Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c3, j13, t13);
         }else{}
 
         if(j14>0){
-            printf("Tempe Bacem : %d\n",j14);
+            printf("Tempe Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c4, j14, t14);
         }else{}
 
         if(j15>0){
-            printf("Perkedel : %d\n",j15);
+            printf("Perkedel\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c5, j15, t15);
         }else{}
 
-        printf("\n====================\n");
+        printf("+=======================================================================+\n\n");
+        printf("+=======================================================================+\n");
         total=t1+t2+t3+t4+t5+t6+t7+t8+t9+t10+t11+t12+t13+t14+t15;
-        printf("Harga : %d\n", total);
-        printf("====================\n");
+        printf("|Harga \t\t\t\t\t\t: \tRp.%d   \t|\n", total);
+        printf("+=======================================================================+\n\n");
 
     mendapatkanDiskon();
 }
@@ -446,15 +449,19 @@ float mendapatkanDiskon(){
 
         if (total >= 100000){
             discount = 25;
-            printf("\nBerhasil Mendapatkan Potongan Harga Sebesar %d persen!\n", discount);
+            printf("+=======================================================================+\n");
+            printf("|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
         }else if (total >= 80000){
             discount = 10;
-            printf("\nBerhasil Mendapatkan Potongan Harga Sebesar %d persen!\n", discount);
+            printf("+=======================================================================+\n");
+            printf("|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
         }else if (total >= 50000){
             discount = 5;
-            printf("\nBerhasil Mendapatkan Potongan Harga Sebesar %d persen!\n", discount);
+            printf("+=======================================================================+\n");
+            printf("|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
         }else {
-            printf ("Anda tidak Mendapatkan Diskon\n");
+            printf("+=======================================================================+\n");
+            printf ("|Anda tidak Mendapatkan Diskon\t\t\t:\t-\t\t|\n");
         }
     potonganHarga();
 }
@@ -472,7 +479,9 @@ float mendapatkanDiskon(){
 //=======================================================================//
 float potonganHarga(){
     harga = discount*total/100;
-    printf("Diskon Terakumulasikan Sebesar : Rp.%d\n\n", harga);
+    printf("+=======================================================================+\n");
+    printf("|Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t|\n", harga);
+    printf("+=======================================================================+\n");
 
 hargaAkhir();
 }
@@ -491,9 +500,9 @@ hargaAkhir();
 float hargaAkhir(){
     harga_akhir = total-harga;
 
-    printf("=======================================================\n");
-    printf("Total Harga yang Harus Dibayar Sebesar : Rp.%d         \n", harga_akhir);
-    printf("=======================================================\n\n");
+    printf("+=======================================================================+\n");
+    printf("|Total Harga yang Harus Dibayar Sebesar \t: \tRp.%d  \t|\n", harga_akhir);
+    printf("+=======================================================================+\n");
 transaksiPembayaran();
 }
 
@@ -511,15 +520,16 @@ transaksiPembayaran();
 //=======================================================================//
 float transaksiPembayaran(){
     Transaksi :
-    printf("Uang Pembayaran : ");
+    printf(" Uang Pembayaran \t\t\t\t: \tRp.");
     scanf("%d",&uang);
     if(uang<harga_akhir){
-        printf("Uang tidak cukup!");
+        printf(" Uang tidak cukup!");
             goto Transaksi;
         }
         else{}
 transaksiKembalian();
 }
+
 //=====================Fungsi Transaksi Kembalian========================//
 //=======================================================================//
 // Nama Fungsi    : Transaksi Kembalian                                  //
@@ -547,9 +557,9 @@ float transaksiKembalian(){
 laporanTransaksi();
 }
 
-//==========================Fungsi Struk Pesanan=========================//
+//========================Fungsi Laporan Transaksi=======================//
 //=======================================================================//
-// Nama Fungsi    : Struk Pesanan                                        //
+// Nama Fungsi    : Laporan Transaksi                                    //
 // Input Argumen  : -                                                    //
 // Output Argumen : -                                                    //
 // Deskripsi      : Menampilkan list pesanan antara lain : Nama Pesanan, //
@@ -565,7 +575,6 @@ laporanTransaksi();
 // A.A. Krisnha Wirayudha - 2005551087                                   //
 // Kelas B                                                               //
 //=======================================================================//
-
 float laporanTransaksi(){
 
     FILE *fptr;
@@ -767,7 +776,7 @@ float menuProgram(){
         produkKedai();
     }
     else if(program==3){
-        supplier();
+        dataSupplier();
     }
     else if(program==4){
         tentangKami();
@@ -856,19 +865,19 @@ void produkKedai(){
 // Kelas B                                                               //
 //=======================================================================//
 void tentangKami(){
-    printf ("\n");
-    printf ("================================================================================");
+    printf ("\t\t\t\t KASIR MILENIUM\n");
+    printf ("================================================================================\n");
     printf ("\t\t\t\t    ABOUT US\n");
-    printf ("================================================================================");
-    printf ("DEVELOPER : \n\n");
-    printf ("A.A. Krisnha Wirayudha \t I Gusti Made Agung Ary Surya Persada \t Medhiko Biraja");
-    printf ("      2005551087                        2005551151                  2005551044  \n\n");
+    printf ("================================================================================\n");
+    printf ("\t\t\t\t   DEVELOPER : \n\n");
+    printf ("A.A. Krisnha Wirayudha \t I Gusti Made Agung Ary Surya Persada \t Medhiko Biraja\n");
+    printf ("      2005551087                      2005551151                   2005551044  \n\n");
     printf ("   Kami merupakan Mahasiswa Universitas Udayana dari Fakultas Teknik, Jurusan\n");
     printf ("    Teknologi Informasi. Program ini kami buat bersama untuk memenuhi tugas \n");
     printf ("\t\t  akhir semester dari Mata Kuliah Pemrograman. \n\n");
     printf ("    Program ini ditujukan untuk Usaha Kecil Menengah (UKM) yang baru memulai\n");
     printf ("\tusaha agar rekap penjualan yang dihasilkan setiap harinya menjadi\n");
-    printf ("\t\t\tlebih tertata dan lebih efisien.");
+    printf ("\t\t\tlebih tertata dan lebih efisien.\n\n");
 }
 
 //===========================Fungsi Supllier=============================//
@@ -883,21 +892,42 @@ void tentangKami(){
 // Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
 //=======================================================================//
-float supplier(){
+void dataSupplier(){
     printf("Masukkan Data Supplier!\n");
-    printf("Nama\t: ");
+    printf("> Jenis Supplier\t: ");
+    scanf("%s", &supplier);
+    printf("> Nama\t\t\t: ");
     scanf("%s", &nama);
-    printf("Alamat\t: ");
-    scanf("%s", &alamat);
-    printf("No Telepon\t: ");
+    printf("> No Telepon\t\t: ");
     scanf("%s", &telepon);
-    printf("Sukses menambah data.");
+    printf("> Alamat\t\t: ");
+    scanf("%s", &alamat);
+    printf("Sukses menambah data!\n\n");
 
+    fileSupplier();
+}
+
+//========================Fungsi File Supllier===========================//
+//=======================================================================//
+// Nama Fungsi    : File Supllier                                        //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Memasukkan data supplier ke dalam file yang telah    //
+//                  disediakan                                           //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 18-12-2020                               Tgl: 18-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//=======================================================================//
+void fileSupplier(){
     FILE *fptr;
     FILE * fPointer;
-    fPointer = fopen("Data Supplier.txt", "a+");
+    fPointer = fopen("Supplier.txt", "a");
 
-    fprintf(fPointer,"Nama\t:%s\n",nama);
-    fprintf(fPointer,"Alamat\t:%s\n",alamat);
-    fprintf(fPointer,"No Telpon\t:%s\n",telepon);
+    fprintf(fPointer,"> Jenis Supplier\t: %s\n", supplier);
+    fprintf(fPointer,"> Nama\t\t: %s\n", nama);
+    fprintf(fPointer,"> No Telpon\t: %s\n", telepon);
+    fprintf(fPointer,"> Alamat\t\t: %s\n\n", alamat);
+
+    fclose(fPointer);
 }

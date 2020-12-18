@@ -1,7 +1,6 @@
 #include <stdio.h> //Header Standar Input/Output dalam C
 #include <time.h> // Header dalam C untuk memanipulasi waktu
 
-//Deklarasi fungsi yang digunakan dalam program ini
 int h1, h2, h3, h4, h5;
 int j1=0, j2=0, j3=0, j4=0, j5=0;
 int t1=0, t2=0, t3=0, t4=0, t5=0;
@@ -11,16 +10,31 @@ int t6=0, t7=0, t8=0, t9=0, t10=0;
 int c1, c2, c3, c4, c5;
 int j11=0, j12=0, j13=0, j14=0, j15=0;
 int t11=0, t12=0, t13=0, t14=0, t15=0;
+int discount;
+int harga;
+int harga_akhir;
 int uang;
 int kembalian;
+int total;
+int program;
+char nama;
+char alamat;
+char telepon;
+int kembali;
+
+//Deklarasi fungsi yang digunakan dalam program ini
 void loginAdmin();
 void headerMenu();
-float daftarMenu(int total);
-float mendapatkanDiskon(int total, int discount);
-float potonganHarga(int discount, int harga, int total);
-float hargaAkhir(int harga, int total, int harga_akhir);
-float transaksiAkhir(int harga_akhir);
-float struk(int total, int discount, int harga_akhir);
+float menuProgram();
+float daftarMenu();
+void produkKedai();
+float supplier();
+void tentangKami();
+float mendapatkanDiskon();
+float potonganHarga();
+float hargaAkhir();
+float transaksiAkhir();
+float struk();
 void tentangKami();
 
 
@@ -28,17 +42,6 @@ void tentangKami();
 int main()
 {
     loginAdmin();
-    headerMenu();
-    int a;
-    float total = daftarMenu(a);
-    int c;
-    float dis = mendapatkanDiskon(total, c);
-    int e;
-    float potHar = potonganHarga(dis, e, total);
-    int i;
-    float harAkh = hargaAkhir(potHar, total, i);
-     float transAkh = transaksiAkhir(harAkh);
-    struk(total, dis, harAkh);
 }
 
 //==========================Fungsi Header Menu===========================//
@@ -108,6 +111,7 @@ void loginAdmin()
 
         if (strcmp (usrnm, "admin")==0 && strcmp (pass, "12345")==0){
             system ("cls");
+            menuProgram();
             printf ("Selamat Datang, %s\n", usrnm);
         }else {
             system ("cls");
@@ -137,7 +141,7 @@ void loginAdmin()
 // A.A. Krisnha Wirayudha - 2005551087                                   //
 // Kelas B                                                               //
 //=======================================================================//
-float daftarMenu(int total)
+float daftarMenu()
 {
     int pilihan;
     int makanan;
@@ -438,7 +442,7 @@ float daftarMenu(int total)
 // Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
 //=======================================================================//
-float mendapatkanDiskon(int total, int discount){
+float mendapatkanDiskon(){
 
         if (total >= 100000){
             discount = 25;
@@ -452,7 +456,7 @@ float mendapatkanDiskon(int total, int discount){
         }else {
             printf ("Anda tidak Mendapatkan Diskon\n");
         }
-    return discount;
+    potonganHarga();
 }
 //=========================Fungsi Potongan Harga=========================//
 //=======================================================================//
@@ -466,11 +470,11 @@ float mendapatkanDiskon(int total, int discount){
 // Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
 //=======================================================================//
-float potonganHarga(int discount, int harga, int total){
+float potonganHarga(){
     harga = discount*total/100;
     printf("Diskon Terakumulasikan Sebesar : Rp.%d\n\n", harga);
 
-return harga;
+hargaAkhir();
 }
 //==========================Fungsi Harga Akhir===========================//
 //=======================================================================//
@@ -484,47 +488,37 @@ return harga;
 // Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
 //=======================================================================//
-float hargaAkhir(int harga, int total, int harga_akhir){
+float hargaAkhir(){
     harga_akhir = total-harga;
 
     printf("=======================================================\n");
     printf("Total Harga yang Harus Dibayar Sebesar : Rp.%d         \n", harga_akhir);
     printf("=======================================================\n\n");
-return harga_akhir;
+transaksiPembayaran();
 }
 
-//==========================Fungsi Transaksi=============================//
+//=====================Fungsi Transaksi Pembayaran=======================//
 //=======================================================================//
-// Nama Fungsi    : Transaksi                                            //
+// Nama Fungsi    : Transaksi Pembayaran                                 //
 // Input Argumen  : int uang                                             //
-// Output Argumen : kembalian                                            //
-// Deskripsi      : Menginputkan uang yang harus dibayar serta kembalian // 
+// Output Argumen :                                                      //
+// Deskripsi      : Menginputkan uang yang harus dibayar                 // 
 //                                                                       //
 // Versi : 1.0                                      Rev. 0               //
 // Tgl   : 13-12-2020                               Tgl: 13-12-2020      //
 // A.A. Krisnha Wirayudha - 2005551087                                   //
 // Kelas B                                                               //
 //=======================================================================//
-
-float transaksiAkhir(int harga_akhir){
-    
+float transaksiPembayaran(){
     Transaksi :
     printf("Uang Pembayaran : ");
     scanf("%d",&uang);
     if(uang<harga_akhir){
         printf("Uang tidak cukup!");
             goto Transaksi;
-        
         }
-        else{
-    kembalian = uang-harga_akhir;
-    printf("Kembalian : %d\n", kembalian);
-}
-    printf("\n\n=======Terima Kasih Atas Kunjungan Anda=======\n");
-    printf("=====Kami Nanti Kunjungan Anda Berikutnya=====\n");
-    printf("=================MERDEKA!=====================");
-    
-    return 0;
+        else{}
+transaksiKembalian();
 }
 
 //==========================Fungsi Struk Pesanan=========================//
@@ -546,7 +540,7 @@ float transaksiAkhir(int harga_akhir){
 // Kelas B                                                               //
 //=======================================================================//
 
-float struk(int total, int discount, int harga_akhir){
+float struk(){
 
     FILE *fptr;
 
@@ -714,6 +708,114 @@ float struk(int total, int discount, int harga_akhir){
     return 0;
 }
 
+//=========================Fungsi Menu Program===========================//
+//=======================================================================//
+// Nama Fungsi    : Menu Program                                         //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan Menu Program                             //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 18-12-2020                               Tgl: 18-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//=======================================================================//
+float menuProgram(){
+    printf("+=======================================+\n");
+    printf("|        Program Kasir Milenium         |\n");
+    printf("+=======================================+\n");
+    printf("| 1. | Kasir Kedai Pemersatu Bangsa\t|\n");
+    printf("| 2. | Produk\t\t\t\t|\n");
+    printf("| 3. | Supplier\t\t\t\t|\n");
+    printf("| 4. | About Us\t\t\t\t|\n");
+    printf("+=======================================+\n");
+    printf(" pilihan anda :");
+    scanf("%d", &program);
+    system("cls");
+
+    if(program==1){
+        headerMenu();
+        daftarMenu();
+    }
+    else if(program==2){
+        produkKedai();
+    }
+    else if(program==3){
+        supplier();
+    }
+    else if(program==4){
+        tentangKami();
+    }
+    printf("\n+=======================================+\n");
+    printf("|       Kembali ke Menu Program?        |\n");
+    printf("+=======================================+\n");
+    printf("| 1. | Kembali\t\t\t\t|\n");
+    printf("| 2. | Selesai\t\t\t\t|\n");
+    printf("+=======================================+\n");
+    printf(" pilihan anda :");
+    scanf("%d", &kembali);
+    
+    if(kembali==1){
+        system("cls");
+        menuProgram();
+    }
+    else if(kembali==2){
+        printf("+============================================+\n");
+        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
+        printf("+============================================+\n");
+    }
+}
+
+//=========================Fungsi Produk Kedai===========================//
+//=======================================================================//
+// Nama Fungsi    : Produk Kedai                                         //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan Produk Kedai                             //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 18-12-2020                               Tgl: 18-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//=======================================================================//
+void produkKedai(){
+    printf("\n     KEDAI PEMERSATU BANGSA\n");
+    printf("      -- DAFTAR MAKANAN --\n\n");
+    printf("===================================\n");
+    printf("|  No |     Makanan     |  Harga  |\n");
+    printf("|=====|=================|=========|\n");
+    printf("|  1  | Nasi Telur\t| 6500    |\n");
+    printf("|  2  | Nasi Lele\t| 8500    |\n");
+    printf("|  3  | Nasi Goreng\t| 8000    |\n");
+    printf("|  4  | Nasi Liwet\t| 7500    |\n");
+    printf("|  5  | Nasi Ayam\t| 9000    |\n");
+    printf("===================================\n");
+
+    printf("\n      KEDAI PEMERSATU BANGSA\n");
+    printf("       -- DAFTAR MINUMAN --\n\n");
+    printf("===================================\n");
+    printf("|  No |     Minuman     |  Harga  |\n");
+    printf("|=====|=================|=========|\n");
+    printf("|  1  | Es Teh\t\t| 2000    |\n");
+    printf("|  2  | Es Jeruk \t| 2500    |\n");
+    printf("|  3  | Es Susu \t| 3500    |\n");
+    printf("|  4  | Es Kopi \t| 3000    |\n");
+    printf("|  5  | Es Buah \t| 5000    |\n");
+    printf("===================================\n");
+    
+    printf("\n      KEDAI PEMERSATU BANGSA\n");
+    printf("       -- DAFTAR CEMILAN --\n\n");
+    printf("===================================\n");
+    printf("|  No |     Cemilan     |  Harga  |\n");
+    printf("|=====|=================|=========|\n");
+    printf("|  1  | Kentang Goreng\t| 6000    |\n");
+    printf("|  2  | Tahu Goreng Isi\t| 5000    |\n");
+    printf("|  3  | Tahu Bacem\t| 5000    |\n");
+    printf("|  4  | Tempe Bacem\t| 5000    |\n");
+    printf("|  5  | Perkedel\t| 5000    |\n");
+    printf("===================================\n");
+}
+
 //========================Fungsi Tentang Kami============================//
 //=======================================================================//
 // Nama Fungsi    : Tentang Kami                                         //
@@ -727,9 +829,7 @@ float struk(int total, int discount, int harga_akhir){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-
-void tentangKami()
-{
+void tentangKami(){
     printf ("\n");
     printf ("================================================================================");
     printf ("\t\t\t\t    ABOUT US\n");
@@ -743,4 +843,35 @@ void tentangKami()
     printf ("    Program ini ditujukan untuk Usaha Kecil Menengah (UKM) yang baru memulai\n");
     printf ("\tusaha agar rekap penjualan yang dihasilkan setiap harinya menjadi\n");
     printf ("\t\t\tlebih tertata dan lebih efisien.");
+}
+
+//===========================Fungsi Supllier=============================//
+//=======================================================================//
+// Nama Fungsi    : Supllier                                             //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menginput data Supplier                              //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 18-12-2020                               Tgl: 18-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//=======================================================================//
+float supplier(){
+    printf("Masukkan Data Supplier!\n");
+    printf("Nama\t: ");
+    scanf("%s", &nama);
+    printf("Alamat\t: ");
+    scanf("%s", &alamat);
+    printf("No Telepon\t: ");
+    scanf("%s", &telepon);
+    printf("Sukses menambah data.");
+
+    FILE *fptr;
+    FILE * fPointer;
+    fPointer = fopen("Data Supplier.txt", "a+");
+
+    fprintf(fPointer,"Nama\t:%s\n",nama);
+    fprintf(fPointer,"Alamat\t:%s\n",alamat);
+    fprintf(fPointer,"No Telpon\t:%s\n",telepon);
 }

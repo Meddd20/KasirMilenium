@@ -2,7 +2,7 @@
 #include <time.h> // Header dalam C untuk memanipulasi waktu
 
 int h1, h2, h3, h4, h5;
-int j1=0, j2=0, j3=0, j4=0, j5=0;
+int j=0, j2=0, j3=0, j4=0, j5=0;
 int t1=0, t2=0, t3=0, t4=0, t5=0;
 int m1, m2, m3, m4, m5;
 int j6=0, j7=0, j8=0, j9=0, j10=0;
@@ -33,9 +33,8 @@ void tentangKami();
 float mendapatkanDiskon();
 float potonganHarga();
 float hargaAkhir();
-float transaksiPembayaran();
-float transaksiKembalian();
-float laporanTransaksi();
+float transaksiAkhir();
+float struk();
 void tentangKami();
 
 
@@ -184,8 +183,8 @@ float daftarMenu()
             case 1 :
                     h1=6500;
                     printf (" ==> Nasi Telur \t: @ Rp.%d\n", h1);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j1);
-                    t1=j1*h1;
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &j);
+                    t1=j*h1;
                     break;
 
             case 2 :
@@ -364,8 +363,8 @@ float daftarMenu()
      hasil :
         printf("\nPesanan Anda :\n");
 
-        if(j1>0){
-            printf("Nasi Telur : %d\n",j1);
+        if(j>0){
+            printf("Nasi Telur : %d\n",j);
         }else{}
 
         if(j2>0){
@@ -429,7 +428,7 @@ float daftarMenu()
         printf("Harga : %d\n", total);
         printf("====================\n");
 
-    mendapatkanDiskon();
+    return total;
 }
 //=============================Fungsi Diskon=============================//
 //=======================================================================//
@@ -521,10 +520,38 @@ float transaksiPembayaran(){
         else{}
 transaksiKembalian();
 }
-
-//=======================Fungsi Laporan Transaksin=======================//
+//=====================Fungsi Transaksi Kembalian========================//
 //=======================================================================//
-// Nama Fungsi    : Laporan TRansaksi                                    //
+// Nama Fungsi    : Transaksi Kembalian                                  //
+// Input Argumen  : int uang                                             //
+// Output Argumen : kembalian                                            //
+// Deskripsi      : menampilkan kembalian                                //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 13-12-2020                               Tgl: 13-12-2020      //
+// A.A. Krisnha Wirayudha - 2005551087                                   //
+// Kelas B                                                               //
+//=======================================================================//
+float transaksiKembalian(){
+    kembalian = uang-harga_akhir;
+    printf("+=======================================================================+\n");
+    printf("|Kembalian \t\t\t\t\t:   \tRp.%d  \t|\n", kembalian);
+    printf("+=======================================================================+\n");
+
+    printf("+=======================================================================+\n");
+    printf("|\t\t     Terima Kasih Atas Kunjungan Anda\t\t\t|\n");
+    printf("|\t\t   Kami Nanti Kunjungan Anda Berikutnya\t\t\t|\n");
+    printf("|\t\t\t         MERDEKA!\t\t\t\t|\n");
+    printf("+=======================================================================+\n");
+
+laporanTransaksi();
+    
+return 0;
+}
+
+//==========================Fungsi Struk Pesanan=========================//
+//=======================================================================//
+// Nama Fungsi    : Struk Pesanan                                        //
 // Input Argumen  : -                                                    //
 // Output Argumen : -                                                    //
 // Deskripsi      : Menampilkan list pesanan antara lain : Nama Pesanan, //
@@ -541,7 +568,7 @@ transaksiKembalian();
 // Kelas B                                                               //
 //=======================================================================//
 
-float laporanTransaksi(){
+float struk(){
 
     FILE *fptr;
 
@@ -557,8 +584,8 @@ float laporanTransaksi(){
     fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
     fprintf(fPointer,"=================================================================\n");
 
-   if(j1>0){
-           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j1, h1, t1);
+   if(j>0){
+           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j, h1, t1);
         }else{}
 
         if(j2>0){
@@ -637,8 +664,8 @@ float laporanTransaksi(){
     fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
     fprintf(fPointer,"=================================================================\n");
 
-     if(j1>0){
-           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j1, h1, t1);
+     if(j>0){
+           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j, h1, t1);
         }else{}
 
         if(j2>0){

@@ -33,8 +33,9 @@ void tentangKami();
 float mendapatkanDiskon();
 float potonganHarga();
 float hargaAkhir();
-float transaksiAkhir();
-float struk();
+float transaksiPembayaran();
+float transaksiKembalian();
+float laporanTransaksi();
 void tentangKami();
 
 
@@ -428,7 +429,7 @@ float daftarMenu()
         printf("Harga : %d\n", total);
         printf("====================\n");
 
-    return total;
+    mendapatkanDiskon();
 }
 //=============================Fungsi Diskon=============================//
 //=======================================================================//
@@ -521,9 +522,9 @@ float transaksiPembayaran(){
 transaksiKembalian();
 }
 
-//==========================Fungsi Struk Pesanan=========================//
+//=======================Fungsi Laporan Transaksin=======================//
 //=======================================================================//
-// Nama Fungsi    : Struk Pesanan                                        //
+// Nama Fungsi    : Laporan TRansaksi                                    //
 // Input Argumen  : -                                                    //
 // Output Argumen : -                                                    //
 // Deskripsi      : Menampilkan list pesanan antara lain : Nama Pesanan, //
@@ -540,7 +541,7 @@ transaksiKembalian();
 // Kelas B                                                               //
 //=======================================================================//
 
-float struk(){
+float laporanTransaksi(){
 
     FILE *fptr;
 
@@ -556,8 +557,8 @@ float struk(){
     fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
     fprintf(fPointer,"=================================================================\n");
 
-   if(j>0){
-           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j, h1, t1);
+   if(j1>0){
+           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j1, h1, t1);
         }else{}
 
         if(j2>0){
@@ -636,8 +637,8 @@ float struk(){
     fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
     fprintf(fPointer,"=================================================================\n");
 
-     if(j>0){
-           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j, h1, t1);
+     if(j1>0){
+           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j1, h1, t1);
         }else{}
 
         if(j2>0){

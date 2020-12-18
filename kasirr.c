@@ -298,6 +298,7 @@ float daftarMenu(int total)
                     printf (" ==> Kentang Goreng \t: @ Rp.%d\n", c1);
                     printf (" Jumlah pesanan \t: "); scanf("%d", &j11);
                     t11=j11*c1;
+                    break;
 
 
             case 2 :
@@ -309,7 +310,7 @@ float daftarMenu(int total)
 
             case 3 :
                     c3=5000;
-                    printf (" ==> Cumi Goreng Tepung \t\t: @ Rp.%d\n", c3);
+                    printf (" ==> Tahu Bacem \t\t: @ Rp.%d\n", c3);
                     printf (" Jumlah pesanan \t: "); scanf("%d", &j13);
                     t13=j13*c3;
                     break;
@@ -543,155 +544,159 @@ float struk(int total, int discount, int harga_akhir){
     FILE *fptr;
 
     FILE * fPointer;
-    fpointer = fopen("Struk Transaksi Pembelian.txt", "w");
+    fPointer = fopen("Struk Transaksi Pembelian.txt", "w");
 
-    printf(fPointer,"============================================\n");
-    printf(fPointer,"\n\t\t\t KEDAI PEMERSATU BANGSA \n");
-    printf(fPointer,"\n\t\t\t STRUK BELANJA \n\n");
-    printf(fPointer,"============================================\n");
-    printf(fPointer,"\n\n");
-    printf(fPointer,"============================================\n");
-    printf(fPointer,"Nama Pesanan \t\t | Jumlah \t | Harga\t | Total\t |\n");
-    printf(fPointer,"============================================\n");
-    if(j1>0){
-           printf(fPointer,"Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", h1, j1, t1);
+    fprintf(fPointer,"=================================================================\n");
+    fprintf(fPointer,"\n\t\t\tKEDAI PEMERSATU BANGSA\n");
+    fprintf(fPointer,"\n\t\t\t    STRUK BELANJA \n\n");
+    fprintf(fPointer,"=================================================================\n");
+    fprintf(fPointer,"\n\n");
+    fprintf(fPointer,"=================================================================\n");
+    fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
+    fprintf(fPointer,"=================================================================\n");
+
+   if(j>0){
+           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j, h1, t1);
         }else{}
 
         if(j2>0){
-            printf(fPointer,"Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", h2, j2, t2);
+            fprintf(fPointer,"Nasi Lele\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j2, h2, t2);
         }else{}
 
         if(j3>0){
-            printf(fPointer,"Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", h3, j3, t3);
+            fprintf(fPointer,"Nasi Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j3, h3, t3);
         }else{}
 
         if(j4>0){
-            printf(fPointer,"Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", h4, j4, t4);
+            fprintf(fPointer,"Nasi Liwet\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j4, h4, t4);
         }else{}
 
         if(j5>0){
-            printf(fPointer,"Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", h5, j5, t5);
+            fprintf(fPointer,"Nasi Ayam\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j5, h5, t5);
         }else{}
 
         if(j6>0){
-           printf(fPointer,"Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", m1, j6, t6);
+           fprintf(fPointer,"Es Teh\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j6, m1, t6);
         }else{}
 
         if(j7>0){
-           printf(fPointer,"Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", m2, j7, t7);
+           fprintf(fPointer,"Es Jeruk\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j7, m2, t7);
         }else{}
 
         if(j8>0){
-           printf(fPointer,"Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", m3, j8, t8);
+           fprintf(fPointer,"Es Susu\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j8, m3, t8);
         }else{}
 
         if(j9>0){
-            printf(fPointer,"Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", m4, j9, t9);
+            fprintf(fPointer,"Es Kopi\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j9, m4, t9);
         }else{}
 
         if(j10>0){
-            printf(fPointer,"Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", m5, j10, t10);
+            fprintf(fPointer,"Es Buah\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j10, m5, t10);
         }else{}
 
         if(j11>0){
-          printf(fPointer,"Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c1, j11, t11);
+          fprintf(fPointer,"Kentang Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j11, c1, t11);
         }else{}
 
         if(j12>0){
-           printf(fPointer,"Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c2, j12, t12);
+           fprintf(fPointer,"Tahu Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j12, c2, t12);
         }else{}
 
         if(j13>0){
-            printf(fPointer,"Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c3, j13, t13);
+            fprintf(fPointer,"Tahu Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j13, c3, t13);
         }else{}
 
         if(j14>0){
-            printf(fPointer,"Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c4, j14, t14);
+            fprintf(fPointer,"Tempe Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j14, c4, t14);
         }else{}
 
         if(j15>0){
-            printf(fPointer,"Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", c5, j15, t15);
+            fprintf(fPointer,"Perkedel\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j15, c5, t15);
         }else{}
-   printf(fPointer,"============================================\n");
-   printf(fPointer,"Total Harga\t\t\t\t : Rp.%d\t\n",total);
-   printf(fPointer,"Diskon\t\t\t\t : %d\t\n persen", discount);
-   printf(fPointer,"Harga Akhir\t\t\t\t : Rp.%d\t\n", harga_akhir);
-   printf(fPointer,"============================================\n\n");
 
-   fpointer = fopen("Report Transaksi Pembelian.txt", "a");
+   fprintf(fPointer,"=================================================================\n");
+   fprintf(fPointer,"Total Harga\t : Rp.%d\t\n",total);
+   fprintf(fPointer,"Diskon\t\t : %d persen\n", discount);
+   fprintf(fPointer,"Harga Akhir\t : Rp.%d\t\n", harga_akhir);
+   fprintf(fPointer,"=================================================================\n\n");
 
-    printf(fPointer,"============================================\n");
-    printf(fPointer,"\n\t\t\t KEDAI PEMERSATU BANGSA \n");
-    printf(fPointer,"\n\t\t\t STRUK BELANJA \n\n");
-    printf(fPointer,"============================================\n");
-    printf(fPointer,"\n\n");
-    printf(fPointer,"============================================\n");
-    printf(fPointer,"Nama Pesanan \t\t | Jumlah \t | Harga\t | Total\t |\n");
-    printf(fPointer,"============================================\n");
-    if(j1>0){
-           printf(fPointer,"Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", h1, j1, t1);
+   fPointer = fopen("Report Transaksi Pembelian.txt", "a");
+
+    fprintf(fPointer,"=================================================================\n");
+    fprintf(fPointer,"\n\t\t\tKEDAI PEMERSATU BANGSA\n");
+    fprintf(fPointer,"\n\t\t\t    STRUK BELANJA \n\n");
+    fprintf(fPointer,"=================================================================\n");
+    fprintf(fPointer,"\n\n");
+    fprintf(fPointer,"=================================================================\n");
+    fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
+    fprintf(fPointer,"=================================================================\n");
+
+     if(j>0){
+           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j, h1, t1);
         }else{}
 
         if(j2>0){
-            printf(fPointer,"Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", h2, j2, t2);
+            fprintf(fPointer,"Nasi Lele\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j2, h2, t2);
         }else{}
 
         if(j3>0){
-            printf(fPointer,"Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", h3, j3, t3);
+            fprintf(fPointer,"Nasi Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j3, h3, t3);
         }else{}
 
         if(j4>0){
-            printf(fPointer,"Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", h4, j4, t4);
+            fprintf(fPointer,"Nasi Liwet\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j4, h4, t4);
         }else{}
 
         if(j5>0){
-            printf(fPointer,"Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", h5, j5, t5);
+            fprintf(fPointer,"Nasi Ayam\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j5, h5, t5);
         }else{}
 
         if(j6>0){
-           printf(fPointer,"Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", m1, j6, t6);
+           fprintf(fPointer,"Es Teh\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j6, m1, t6);
         }else{}
 
         if(j7>0){
-           printf(fPointer,"Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", m2, j7, t7);
+           fprintf(fPointer,"Es Jeruk\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j7, m2, t7);
         }else{}
 
         if(j8>0){
-           printf(fPointer,"Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", m3, j8, t8);
+           fprintf(fPointer,"Es Susu\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j8, m3, t8);
         }else{}
 
         if(j9>0){
-            printf(fPointer,"Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", m4, j9, t9);
+            fprintf(fPointer,"Es Kopi\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j9, m4, t9);
         }else{}
 
         if(j10>0){
-            printf(fPointer,"Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", m5, j10, t10);
+            fprintf(fPointer,"Es Buah\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j10, m5, t10);
         }else{}
 
         if(j11>0){
-          printf(fPointer,"Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c1, j11, t11);
+          fprintf(fPointer,"Kentang Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j11, c1, t11);
         }else{}
 
         if(j12>0){
-           printf(fPointer,"Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c2, j12, t12);
+           fprintf(fPointer,"Tahu Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j12, c2, t12);
         }else{}
 
         if(j13>0){
-            printf(fPointer,"Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c3, j13, t13);
+            fprintf(fPointer,"Tahu Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j13, c3, t13);
         }else{}
 
         if(j14>0){
-            printf(fPointer,"Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c4, j14, t14);
+            fprintf(fPointer,"Tempe Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j14, c4, t14);
         }else{}
 
         if(j15>0){
-            printf(fPointer,"Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", c5, j15, t15);
+            fprintf(fPointer,"Perkedel\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j15, c5, t15);
         }else{}
-   printf(fPointer,"============================================\n");
-   printf(fPointer,"Total Harga\t\t\t\t : Rp.%d\t\n",total);
-   printf(fPointer,"Diskon\t\t\t\t : %d\t\n persen", discount);
-   printf(fPointer,"Harga Akhir\t\t\t\t : Rp.%d\t\n", harga_akhir);
-   printf(fPointer,"============================================\n\n");
+
+   fprintf(fPointer,"=================================================================\n");
+   fprintf(fPointer,"Total Harga\t : Rp.%d\t\n",total);
+   fprintf(fPointer,"Diskon\t\t : %d persen\n", discount);
+   fprintf(fPointer,"Harga Akhir\t : Rp.%d\t\n", harga_akhir);
+   fprintf(fPointer,"=================================================================\n\n");
 
     return 0;
 }

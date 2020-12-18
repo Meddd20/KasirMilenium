@@ -11,6 +11,15 @@ float hargaAkhir(int harga, int total, int harga_akhir);
 float transaksiAkhir(int harga_akhir);
 float struk(int total, int discount, int harga_akhir);
 void tentangKami();
+int h1, h2, h3, h4, h5;
+int j1=0, j2=0, j3=0, j4=0, j5=0;
+int t1=0, t2=0, t3=0, t4=0, t5=0;
+int m1, m2, m3, m4, m5;
+int j6=0, j7=0, j8=0, j9=0, j10=0;
+int t6=0, t7=0, t8=0, t9=0, t10=0;
+int c1, c2, c3, c4, c5;
+int j11=0, j12=0, j13=0, j14=0, j15=0;
+int t11=0, t12=0, t13=0, t14=0, t15=0;
 
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main()
@@ -131,15 +140,6 @@ float daftarMenu(int total)
     int makanan;
     int minuman;
     int cemilan;
-    int h1, h2, h3, h4, h5;
-    int j1=0, j2=0, j3=0, j4=0, j5=0;
-    int t1=0, t2=0, t3=0, t4=0, t5=0;
-    int m1, m2, m3, m4, m5;
-    int j6=0, j7=0, j8=0, j9=0, j10=0;
-    int t6=0, t7=0, t8=0, t9=0, t10=0;
-    int c1, c2, c3, c4, c5;
-    int j11=0, j12=0, j13=0, j14=0, j15=0;
-    int t11=0, t12=0, t13=0, t14=0, t15=0;
     int lagi;
 
     kategori1:
@@ -540,16 +540,85 @@ float transaksiAkhir(int harga_akhir){
 
 float struk(int total, int discount, int harga_akhir){
 
-    int h1, h2, h3, h4, h5;
-    int m1, m2, m3, m4, m5;
-    int c1, c2, c3, c4, c5;
-    int j1, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, j15;
-    int t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15;
-    
     FILE *fptr;
-    
+
     FILE * fPointer;
     fpointer = fopen("Struk Transaksi Pembelian.txt", "w");
+
+    printf(fPointer,"============================================\n");
+    printf(fPointer,"\n\t\t\t KEDAI PEMERSATU BANGSA \n");
+    printf(fPointer,"\n\t\t\t STRUK BELANJA \n\n");
+    printf(fPointer,"============================================\n");
+    printf(fPointer,"\n\n");
+    printf(fPointer,"============================================\n");
+    printf(fPointer,"Nama Pesanan \t\t | Jumlah \t | Harga\t | Total\t |\n");
+    printf(fPointer,"============================================\n");
+    if(j1>0){
+           printf(fPointer,"Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", h1, j1, t1);
+        }else{}
+
+        if(j2>0){
+            printf(fPointer,"Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", h2, j2, t2);
+        }else{}
+
+        if(j3>0){
+            printf(fPointer,"Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", h3, j3, t3);
+        }else{}
+
+        if(j4>0){
+            printf(fPointer,"Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", h4, j4, t4);
+        }else{}
+
+        if(j5>0){
+            printf(fPointer,"Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", h5, j5, t5);
+        }else{}
+
+        if(j6>0){
+           printf(fPointer,"Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", m1, j6, t6);
+        }else{}
+
+        if(j7>0){
+           printf(fPointer,"Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", m2, j7, t7);
+        }else{}
+
+        if(j8>0){
+           printf(fPointer,"Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", m3, j8, t8);
+        }else{}
+
+        if(j9>0){
+            printf(fPointer,"Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", m4, j9, t9);
+        }else{}
+
+        if(j10>0){
+            printf(fPointer,"Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", m5, j10, t10);
+        }else{}
+
+        if(j11>0){
+          printf(fPointer,"Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c1, j11, t11);
+        }else{}
+
+        if(j12>0){
+           printf(fPointer,"Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", c2, j12, t12);
+        }else{}
+
+        if(j13>0){
+            printf(fPointer,"Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c3, j13, t13);
+        }else{}
+
+        if(j14>0){
+            printf(fPointer,"Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", c4, j14, t14);
+        }else{}
+
+        if(j15>0){
+            printf(fPointer,"Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", c5, j15, t15);
+        }else{}
+   printf(fPointer,"============================================\n");
+   printf(fPointer,"Total Harga\t\t\t\t : Rp.%d\t\n",total);
+   printf(fPointer,"Diskon\t\t\t\t : %d\t\n persen", discount);
+   printf(fPointer,"Harga Akhir\t\t\t\t : Rp.%d\t\n", harga_akhir);
+   printf(fPointer,"============================================\n\n");
+
+   fpointer = fopen("Report Transaksi Pembelian.txt", "a");
 
     printf(fPointer,"============================================\n");
     printf(fPointer,"\n\t\t\t KEDAI PEMERSATU BANGSA \n");

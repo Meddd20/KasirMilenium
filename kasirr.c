@@ -2,15 +2,6 @@
 #include <time.h> // Header dalam C untuk memanipulasi waktu
 
 //Deklarasi fungsi yang digunakan dalam program ini
-void loginAdmin();
-void headerMenu();
-float daftarMenu(int total);
-float mendapatkanDiskon(int total, int discount);
-float potonganHarga(int discount, int harga, int total);
-float hargaAkhir(int harga, int total, int harga_akhir);
-float transaksiAkhir(int harga_akhir);
-float struk(int total, int discount, int harga_akhir);
-void tentangKami();
 int h1, h2, h3, h4, h5;
 int j1=0, j2=0, j3=0, j4=0, j5=0;
 int t1=0, t2=0, t3=0, t4=0, t5=0;
@@ -20,6 +11,18 @@ int t6=0, t7=0, t8=0, t9=0, t10=0;
 int c1, c2, c3, c4, c5;
 int j11=0, j12=0, j13=0, j14=0, j15=0;
 int t11=0, t12=0, t13=0, t14=0, t15=0;
+int uang;
+int kembalian;
+void loginAdmin();
+void headerMenu();
+float daftarMenu(int total);
+float mendapatkanDiskon(int total, int discount);
+float potonganHarga(int discount, int harga, int total);
+float hargaAkhir(int harga, int total, int harga_akhir);
+float transaksiAkhir(int harga_akhir);
+float struk(int total, int discount, int harga_akhir);
+void tentangKami();
+
 
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main()
@@ -504,8 +507,7 @@ return harga_akhir;
 //=======================================================================//
 
 float transaksiAkhir(int harga_akhir){
-    int uang;
-    int kembalian;
+    
     Transaksi :
     printf("Uang Pembayaran : ");
     scanf("%d",&uang);
@@ -535,6 +537,11 @@ float transaksiAkhir(int harga_akhir){
 //                                                                       //
 // Versi : 1.0                                      Rev. 0               //
 // Tgl   : 13-12-2020                               Tgl: 13-12-2020      //
+// A.A. Krisnha Wirayudha - 2005551087                                   //
+// Kelas B                                                               //
+//                                                                       //
+// Versi : 2.0                                      Rev. 0               //
+// Tgl   : 13-12-2020                               Tgl: 18-12-2020      //
 // A.A. Krisnha Wirayudha - 2005551087                                   //
 // Kelas B                                                               //
 //=======================================================================//
@@ -619,7 +626,10 @@ float struk(int total, int discount, int harga_akhir){
    fprintf(fPointer,"Total Harga\t : Rp.%d\t\n",total);
    fprintf(fPointer,"Diskon\t\t : %d persen\n", discount);
    fprintf(fPointer,"Harga Akhir\t : Rp.%d\t\n", harga_akhir);
-   fprintf(fPointer,"=================================================================\n\n");
+   fprintf(fPointer,"=================================================================\n");
+   fprintf(fPointer,"Uang Pembayaran\t : Rp.%d\t\n", uang);
+   fprintf(fPointer,"Kembalian\t : Rp.%d\t\n", kembalian);
+   fprintf(fPointer,"=================================================================\n\n"); 
 
    fPointer = fopen("Report Transaksi Pembelian.txt", "a");
 
@@ -696,7 +706,10 @@ float struk(int total, int discount, int harga_akhir){
    fprintf(fPointer,"Total Harga\t : Rp.%d\t\n",total);
    fprintf(fPointer,"Diskon\t\t : %d persen\n", discount);
    fprintf(fPointer,"Harga Akhir\t : Rp.%d\t\n", harga_akhir);
-   fprintf(fPointer,"=================================================================\n\n");
+   fprintf(fPointer,"=================================================================\n");
+   fprintf(fPointer,"Uang Pembayaran\t : Rp.%d\t\n", uang);
+   fprintf(fPointer,"Kembalian\t : Rp.%d\t\n", kembalian);
+   fprintf(fPointer,"=================================================================\n\n"); 
 
     return 0;
 }

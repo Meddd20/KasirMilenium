@@ -815,6 +815,7 @@ float menuProgram(){
         printf("+============================================+\n");
         printf("| Terimakasih Telah Menggunakan Program Kami |\n");
         printf("+============================================+\n");
+        exit (1);
     }
 }
 
@@ -866,6 +867,7 @@ float menuTamu(){
         printf("+============================================+\n");
         printf("| Terimakasih Telah Menggunakan Program Kami |\n");
         printf("+============================================+\n");
+        exit (1);
     }
 }
 
@@ -988,6 +990,7 @@ void menuSupplier()
         printf("+============================================+\n");
         printf("| Terimakasih Telah Menggunakan Program Kami |\n");
         printf("+============================================+\n");
+        exit (1);
     }
 }
 

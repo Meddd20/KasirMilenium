@@ -585,9 +585,15 @@ laporanTransaksi();
 // Tgl   : 13-12-2020                               Tgl: 18-12-2020      //
 // A.A. Krisnha Wirayudha - 2005551087                                   //
 // Kelas B                                                               //
+//                                                                       //
 // Versi : 2.1                                      Rev. 2               //
 // Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
 // Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//                                                                       //
+// Versi : 2.2                                      Rev. 3               //
+// Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
 //=======================================================================//
 float laporanTransaksi(){
@@ -1119,7 +1125,6 @@ void fileSupplier(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-
 void readSupplier()
 {
     char buff[255];

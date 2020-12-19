@@ -62,7 +62,6 @@ int main(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-
 void headerMenu(){
     struct tm *Sys_T;
     time_t Tval;
@@ -98,7 +97,6 @@ void headerMenu(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-
 void loginAdmin(){
     char usrnm[5], pass[12];
     int status = 0;
@@ -443,6 +441,7 @@ float daftarMenu(){
 
     mendapatkanDiskon();
 }
+
 //=============================Fungsi Diskon=============================//
 //=======================================================================//
 // Nama Fungsi    : Mendapatkan Diskon                                   //
@@ -475,6 +474,7 @@ float mendapatkanDiskon(){
         }
     potonganHarga();
 }
+
 //=========================Fungsi Potongan Harga=========================//
 //=======================================================================//
 // Nama Fungsi    : Potongan Harga                                       //
@@ -495,6 +495,7 @@ float potonganHarga(){
 
 hargaAkhir();
 }
+
 //==========================Fungsi Harga Akhir===========================//
 //=======================================================================//
 // Nama Fungsi    : Harga Akhir                                          //
@@ -590,169 +591,207 @@ laporanTransaksi();
 // Kelas B                                                               //
 //=======================================================================//
 float laporanTransaksi(){
-
+    struct tm *Sys_T;
+    time_t Tval;
+    Tval = time (NULL);
+    Sys_T = localtime (&Tval);
+    
     FILE *fptr;
 
     FILE * fPointer;
     fPointer = fopen("Struk Transaksi Pembelian.txt", "w");
+    
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"\t\t        KEDAI PEMERSATU BANGSA\n");
+        fprintf(fPointer,"\t\t   Jl. Pantai Berawa No. 888, Bali\n");
+        fprintf(fPointer,"\t\t       %s", asctime (Sys_T));
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"\t\t\t    STRUK BELANJA \n\n");
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Nama Pesanan \t\t\t|  Harga \t| Jumlah |    Total\t|\n");
+        fprintf(fPointer,"+=======================================================================+\n");
 
-    fprintf(fPointer,"=================================================================\n");
-    fprintf(fPointer,"\n\t\t\tKEDAI PEMERSATU BANGSA\n");
-    fprintf(fPointer,"\n\t\t\t    STRUK BELANJA \n\n");
-    fprintf(fPointer,"=================================================================\n");
-    fprintf(fPointer,"\n\n");
-    fprintf(fPointer,"=================================================================\n");
-    fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
-    fprintf(fPointer,"=================================================================\n");
 
         if(qtt_mknn1>0){
-          fprintf(fPointer,"Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
+          fprintf(fPointer,"|Nasi Telur\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
         }else{}
 
         if(qtt_mknn2>0){
-            fprintf(fPointer,"Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
+            fprintf(fPointer,"|Nasi Lele\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
         }else{}
 
         if(qtt_mknn3>0){
-            fprintf(fPointer,"Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
+            fprintf(fPointer,"|Nasi Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
         }else{}
 
         if(qtt_mknn4>0){
-            fprintf(fPointer,"Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
+            fprintf(fPointer,"|Nasi Liwet\t\t\t|Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
         }else{}
 
         if(qtt_mknn5>0){
-            fprintf(fPointer,"Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
+            fprintf(fPointer,"|Nasi Ayam\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
         }else{}
 
         if(qtt_mnm1>0){
-           fprintf(fPointer,"Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
+           fprintf(fPointer,"|Es Teh\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
         }else{}
 
         if(qtt_mnm2>0){
-           fprintf(fPointer,"Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
+           fprintf(fPointer,"|Es Jeruk\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
         }else{}
 
         if(qtt_mnm3>0){
-           fprintf(fPointer,"Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
+           fprintf(fPointer,"|Es Susu\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
         }else{}
 
         if(qtt_mnm4>0){
-           fprintf(fPointer,"Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
+           fprintf(fPointer,"|Es Kopi\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
         }else{}
 
         if(qtt_mnm5>0){
-           fprintf(fPointer,"Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
+           fprintf(fPointer,"|Es Buah\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
         }else{}
 
         if(qtt_cmln1>0){
-          fprintf(fPointer,"Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
+          fprintf(fPointer,"|Kentang Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
         }else{}
 
         if(qtt_cmln2>0){
-           fprintf(fPointer,"Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
+           fprintf(fPointer,"|Tahu Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
         }else{}
 
         if(qtt_cmln3>0){
-            fprintf(fPointer,"Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
+            fprintf(fPointer,"|Tahu Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
         }else{}
 
         if(qtt_cmln4>0){
-            fprintf(fPointer,"Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
+            fprintf(fPointer,"|Tempe Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
         }else{}
 
         if(qtt_cmln5>0){
-            fprintf(fPointer,"Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
+            fprintf(fPointer,"|Perkedel\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
         }else{}
 
-   fprintf(fPointer,"=================================================================\n");
-   fprintf(fPointer,"Total Harga\t : Rp.%d\t\n",total);
-   fprintf(fPointer,"Diskon\t\t : %d persen\n", discount);
-   fprintf(fPointer,"Harga Akhir\t : Rp.%d\t\n", harga_akhir);
-   fprintf(fPointer,"=================================================================\n");
-   fprintf(fPointer,"Uang Pembayaran\t : Rp.%d\t\n", uang);
-   fprintf(fPointer,"Kembalian\t : Rp.%d\t\n", kembalian);
-   fprintf(fPointer,"=================================================================\n\n");
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Harga \t\t\t\t\t\t: \tRp.%d   \t|\n", total);
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t|\n", harga);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Total Harga yang Harus Dibayar Sebesar \t: \tRp.%d  \t|\n", harga_akhir);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer," Uang Pembayaran \t\t\t\t: \tRp.%d\n", uang);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Kembalian \t\t\t\t\t:   \tRp.%d  \t|\n", kembalian);
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|\t\t     Terima Kasih Atas Kunjungan Anda\t\t\t|\n");
+        fprintf(fPointer,"|\t\t   Kami Nanti Kunjungan Anda Berikutnya\t\t\t|\n");
+        fprintf(fPointer,"|\t\t\t         MERDEKA!\t\t\t\t|\n");
+        fprintf(fPointer,"+=======================================================================+\n\n");
 
    fPointer = fopen("Report Transaksi Pembelian.txt", "a");
+    
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"\t\t        KEDAI PEMERSATU BANGSA\n");
+        fprintf(fPointer,"\t\t   Jl. Pantai Berawa No. 888, Bali\n");
+        fprintf(fPointer,"\t\t       %s", asctime (Sys_T));
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"\t\t\t    STRUK BELANJA \n\n");
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Nama Pesanan \t\t\t|  Harga \t| Jumlah |    Total\t|\n");
+        fprintf(fPointer,"+=======================================================================+\n");
 
-    fprintf(fPointer,"=================================================================\n");
-    fprintf(fPointer,"\n\t\t\tKEDAI PEMERSATU BANGSA\n");
-    fprintf(fPointer,"\n\t\t\t    STRUK BELANJA \n\n");
-    fprintf(fPointer,"=================================================================\n");
-    fprintf(fPointer,"\n\n");
-    fprintf(fPointer,"=================================================================\n");
-    fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
-    fprintf(fPointer,"=================================================================\n");
 
         if(qtt_mknn1>0){
-           printf(fPointer,"Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
+          fprintf(fPointer,"|Nasi Telur\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
         }else{}
 
         if(qtt_mknn2>0){
-            printf(fPointer,"Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
+            fprintf(fPointer,"|Nasi Lele\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
         }else{}
 
         if(qtt_mknn3>0){
-            printf(fPointer,"Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
+            fprintf(fPointer,"|Nasi Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
         }else{}
 
         if(qtt_mknn4>0){
-            printf(fPointer,"Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
+            fprintf(fPointer,"|Nasi Liwet\t\t\t|Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
         }else{}
 
         if(qtt_mknn5>0){
-            printf(fPointer,"Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
+            fprintf(fPointer,"|Nasi Ayam\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
         }else{}
 
         if(qtt_mnm1>0){
-           printf(fPointer,"Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
+           fprintf(fPointer,"|Es Teh\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
         }else{}
 
         if(qtt_mnm2>0){
-           printf(fPointer,"Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
+           fprintf(fPointer,"|Es Jeruk\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
         }else{}
 
         if(qtt_mnm3>0){
-           printf(fPointer,"Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
+           fprintf(fPointer,"|Es Susu\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
         }else{}
 
         if(qtt_mnm4>0){
-            printf(fPointer,"Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
+           fprintf(fPointer,"|Es Kopi\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
         }else{}
 
         if(qtt_mnm5>0){
-            printf(fPointer,"Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
+           fprintf(fPointer,"|Es Buah\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
         }else{}
 
         if(qtt_cmln1>0){
-          printf(fPointer,"Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
+          fprintf(fPointer,"|Kentang Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
         }else{}
 
         if(qtt_cmln2>0){
-           printf(fPointer,"Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
+           fprintf(fPointer,"|Tahu Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
         }else{}
 
         if(qtt_cmln3>0){
-            printf(fPointer,"Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
+            fprintf(fPointer,"|Tahu Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
         }else{}
 
         if(qtt_cmln4>0){
-            printf(fPointer,"Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
+            fprintf(fPointer,"|Tempe Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
         }else{}
 
         if(qtt_cmln5>0){
-            printf(fPointer,"Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
+            fprintf(fPointer,"|Perkedel\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
         }else{}
 
-   fprintf(fPointer,"=================================================================\n");
-   fprintf(fPointer,"Total Harga\t : Rp.%d\t\n",total);
-   fprintf(fPointer,"Diskon\t\t : %d persen\n", discount);
-   fprintf(fPointer,"Harga Akhir\t : Rp.%d\t\n", harga_akhir);
-   fprintf(fPointer,"=================================================================\n");
-   fprintf(fPointer,"Uang Pembayaran\t : Rp.%d\t\n", uang);
-   fprintf(fPointer,"Kembalian\t : Rp.%d\t\n", kembalian);
-   fprintf(fPointer,"=================================================================\n\n");
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Harga \t\t\t\t\t\t: \tRp.%d   \t|\n", total);
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t|\n", harga);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Total Harga yang Harus Dibayar Sebesar \t: \tRp.%d  \t|\n", harga_akhir);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer," Uang Pembayaran \t\t\t\t: \tRp.%d\n", uang);
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|Kembalian \t\t\t\t\t:   \tRp.%d  \t|\n", kembalian);
+        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+=======================================================================+\n");
+        fprintf(fPointer,"|\t\t     Terima Kasih Atas Kunjungan Anda\t\t\t|\n");
+        fprintf(fPointer,"|\t\t   Kami Nanti Kunjungan Anda Berikutnya\t\t\t|\n");
+        fprintf(fPointer,"|\t\t\t         MERDEKA!\t\t\t\t|\n");
+        fprintf(fPointer,"+=======================================================================+\n\n");
 
     return 0;
 }
@@ -831,7 +870,6 @@ float menuProgram(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-
 float menuTamu(){
     printf("+=======================================+\n");
     printf("|        Program Kasir Milenium         |\n");
@@ -934,10 +972,9 @@ void produkKedai(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-
 void tentangKami(){
     printf ("\n");
-    printf ("================================================================================");
+    printf ("================================================================================\n");
     printf ("\t\t\t\t    ABOUT US\n");
     printf ("================================================================================\n\n");
     printf ("A.A. Krisnha Wirayudha \t I Gusti Made Agung Ary Surya Persada \t Medhiko Biraja\n");
@@ -963,7 +1000,6 @@ void tentangKami(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-
 void menuSupplier()
 {
     int pilihanSupplier;

@@ -9,7 +9,7 @@ int hrg_mnm1, hrg_mnm2, hrg_mnm3, hrg_mnm4, hrg_mnm5;
 int qtt_mnm1, qtt_mnm2, qtt_mnm3, qtt_mnm4, qtt_mnm5;
 int ttl_mnm1, ttl_mnm2, ttl_mnm3, ttl_mnm4, ttl_mnm5;
 int hrg_cmln1, hrg_cmln2, hrg_cmln3, hrg_cmln4, hrg_cmln5;
-int qtt_cmln1, qtt_cmln2, qtt_cmln3, qtt_cmln4, qtt_cmln5 
+int qtt_cmln1, qtt_cmln2, qtt_cmln3, qtt_cmln4, qtt_cmln5;
 int ttl_cmln1, ttl_cmln2, ttl_cmln3, ttl_cmln4, ttl_cmln5;
 int discount;
 int harga;
@@ -359,7 +359,7 @@ float daftarMenu(){
         printf(" ==> Silakan input kembali\n");
         goto kategori1;
     }
-    
+
     printf("\nIngin Memesan Lagi?\n");
     printf("(1) Ya,\n(2) Tidak");
     printf("\nPilihan Anda : ");
@@ -521,7 +521,7 @@ transaksiPembayaran();
 // Nama Fungsi    : Transaksi Pembayaran                                 //
 // Input Argumen  : int uang                                             //
 // Output Argumen :                                                      //
-// Deskripsi      : Menginputkan uang yang harus dibayar                 // 
+// Deskripsi      : Menginputkan uang yang harus dibayar                 //
 //                                                                       //
 // Versi : 1.0                                      Rev. 0               //
 // Tgl   : 13-12-2020                               Tgl: 13-12-2020      //
@@ -573,16 +573,20 @@ laporanTransaksi();
 // Input Argumen  : -                                                    //
 // Output Argumen : -                                                    //
 // Deskripsi      : Menampilkan list pesanan antara lain : Nama Pesanan, //
-//                  Jumlah, Harga, Total Harga, Diskon, serta Harga Akhir// 
+//                  Jumlah, Harga, Total Harga, Diskon, serta Harga Akhir//
 //                                                                       //
 // Versi : 1.0                                      Rev. 0               //
 // Tgl   : 13-12-2020                               Tgl: 13-12-2020      //
 // A.A. Krisnha Wirayudha - 2005551087                                   //
 // Kelas B                                                               //
 //                                                                       //
-// Versi : 2.0                                      Rev. 0               //
+// Versi : 2.0                                      Rev. 1               //
 // Tgl   : 13-12-2020                               Tgl: 18-12-2020      //
 // A.A. Krisnha Wirayudha - 2005551087                                   //
+// Kelas B                                                               //
+// Versi : 2.1                                      Rev. 2               //
+// Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
 float laporanTransaksi(){
@@ -601,64 +605,64 @@ float laporanTransaksi(){
     fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
     fprintf(fPointer,"=================================================================\n");
 
-   if(j1>0){
-           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j1, h1, t1);
+        if(qtt_mknn1>0){
+          fprintf(fPointer,"Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
         }else{}
 
-        if(j2>0){
-            fprintf(fPointer,"Nasi Lele\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j2, h2, t2);
+        if(qtt_mknn2>0){
+            fprintf(fPointer,"Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
         }else{}
 
-        if(j3>0){
-            fprintf(fPointer,"Nasi Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j3, h3, t3);
+        if(qtt_mknn3>0){
+            fprintf(fPointer,"Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
         }else{}
 
-        if(j4>0){
-            fprintf(fPointer,"Nasi Liwet\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j4, h4, t4);
+        if(qtt_mknn4>0){
+            fprintf(fPointer,"Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
         }else{}
 
-        if(j5>0){
-            fprintf(fPointer,"Nasi Ayam\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j5, h5, t5);
+        if(qtt_mknn5>0){
+            fprintf(fPointer,"Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
         }else{}
 
-        if(j6>0){
-           fprintf(fPointer,"Es Teh\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j6, m1, t6);
+        if(qtt_mnm1>0){
+           fprintf(fPointer,"Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
         }else{}
 
-        if(j7>0){
-           fprintf(fPointer,"Es Jeruk\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j7, m2, t7);
+        if(qtt_mnm2>0){
+           fprintf(fPointer,"Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
         }else{}
 
-        if(j8>0){
-           fprintf(fPointer,"Es Susu\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j8, m3, t8);
+        if(qtt_mnm3>0){
+           fprintf(fPointer,"Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
         }else{}
 
-        if(j9>0){
-            fprintf(fPointer,"Es Kopi\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j9, m4, t9);
+        if(qtt_mnm4>0){
+           fprintf(fPointer,"Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
         }else{}
 
-        if(j10>0){
-            fprintf(fPointer,"Es Buah\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j10, m5, t10);
+        if(qtt_mnm5>0){
+           fprintf(fPointer,"Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
         }else{}
 
-        if(j11>0){
-          fprintf(fPointer,"Kentang Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j11, c1, t11);
+        if(qtt_cmln1>0){
+          fprintf(fPointer,"Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
         }else{}
 
-        if(j12>0){
-           fprintf(fPointer,"Tahu Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j12, c2, t12);
+        if(qtt_cmln2>0){
+           fprintf(fPointer,"Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
         }else{}
 
-        if(j13>0){
-            fprintf(fPointer,"Tahu Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j13, c3, t13);
+        if(qtt_cmln3>0){
+            fprintf(fPointer,"Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
         }else{}
 
-        if(j14>0){
-            fprintf(fPointer,"Tempe Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j14, c4, t14);
+        if(qtt_cmln4>0){
+            fprintf(fPointer,"Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
         }else{}
 
-        if(j15>0){
-            fprintf(fPointer,"Perkedel\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j15, c5, t15);
+        if(qtt_cmln5>0){
+            fprintf(fPointer,"Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
         }else{}
 
    fprintf(fPointer,"=================================================================\n");
@@ -668,7 +672,7 @@ float laporanTransaksi(){
    fprintf(fPointer,"=================================================================\n");
    fprintf(fPointer,"Uang Pembayaran\t : Rp.%d\t\n", uang);
    fprintf(fPointer,"Kembalian\t : Rp.%d\t\n", kembalian);
-   fprintf(fPointer,"=================================================================\n\n"); 
+   fprintf(fPointer,"=================================================================\n\n");
 
    fPointer = fopen("Report Transaksi Pembelian.txt", "a");
 
@@ -681,64 +685,64 @@ float laporanTransaksi(){
     fprintf(fPointer,"Nama Pesanan\t | Jumlah\t | Harga\t | Total\t|\n");
     fprintf(fPointer,"=================================================================\n");
 
-     if(j1>0){
-           fprintf(fPointer,"Nasi Telur\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j1, h1, t1);
+        if(qtt_mknn1>0){
+           printf(fPointer,"Nasi Telur\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
         }else{}
 
-        if(j2>0){
-            fprintf(fPointer,"Nasi Lele\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j2, h2, t2);
+        if(qtt_mknn2>0){
+            printf(fPointer,"Nasi Lele\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
         }else{}
 
-        if(j3>0){
-            fprintf(fPointer,"Nasi Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j3, h3, t3);
+        if(qtt_mknn3>0){
+            printf(fPointer,"Nasi Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
         }else{}
 
-        if(j4>0){
-            fprintf(fPointer,"Nasi Liwet\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j4, h4, t4);
+        if(qtt_mknn4>0){
+            printf(fPointer,"Nasi Liwet\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
         }else{}
 
-        if(j5>0){
-            fprintf(fPointer,"Nasi Ayam\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j5, h5, t5);
+        if(qtt_mknn5>0){
+            printf(fPointer,"Nasi Ayam\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
         }else{}
 
-        if(j6>0){
-           fprintf(fPointer,"Es Teh\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j6, m1, t6);
+        if(qtt_mnm1>0){
+           printf(fPointer,"Es Teh\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
         }else{}
 
-        if(j7>0){
-           fprintf(fPointer,"Es Jeruk\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j7, m2, t7);
+        if(qtt_mnm2>0){
+           printf(fPointer,"Es Jeruk\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
         }else{}
 
-        if(j8>0){
-           fprintf(fPointer,"Es Susu\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j8, m3, t8);
+        if(qtt_mnm3>0){
+           printf(fPointer,"Es Susu\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
         }else{}
 
-        if(j9>0){
-            fprintf(fPointer,"Es Kopi\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j9, m4, t9);
+        if(qtt_mnm4>0){
+            printf(fPointer,"Es Kopi\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
         }else{}
 
-        if(j10>0){
-            fprintf(fPointer,"Es Buah\t\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j10, m5, t10);
+        if(qtt_mnm5>0){
+            printf(fPointer,"Es Buah\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
         }else{}
 
-        if(j11>0){
-          fprintf(fPointer,"Kentang Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j11, c1, t11);
+        if(qtt_cmln1>0){
+          printf(fPointer,"Kentang Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
         }else{}
 
-        if(j12>0){
-           fprintf(fPointer,"Tahu Goreng\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j12, c2, t12);
+        if(qtt_cmln2>0){
+           printf(fPointer,"Tahu Goreng\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
         }else{}
 
-        if(j13>0){
-            fprintf(fPointer,"Tahu Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j13, c3, t13);
+        if(qtt_cmln3>0){
+            printf(fPointer,"Tahu Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
         }else{}
 
-        if(j14>0){
-            fprintf(fPointer,"Tempe Bacem\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j14, c4, t14);
+        if(qtt_cmln4>0){
+            printf(fPointer,"Tempe Bacem\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
         }else{}
 
-        if(j15>0){
-            fprintf(fPointer,"Perkedel\t | %d\t\t | Rp.%d\t | Rp.%d\t|\n", j15, c5, t15);
+        if(qtt_cmln5>0){
+            printf(fPointer,"Perkedel\t\t|Rp.%d\t|%d\t|%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
         }else{}
 
    fprintf(fPointer,"=================================================================\n");
@@ -748,7 +752,7 @@ float laporanTransaksi(){
    fprintf(fPointer,"=================================================================\n");
    fprintf(fPointer,"Uang Pembayaran\t : Rp.%d\t\n", uang);
    fprintf(fPointer,"Kembalian\t : Rp.%d\t\n", kembalian);
-   fprintf(fPointer,"=================================================================\n\n"); 
+   fprintf(fPointer,"=================================================================\n\n");
 
     return 0;
 }
@@ -799,7 +803,7 @@ float menuProgram(){
     printf("+=======================================+\n");
     printf(" pilihan anda :");
     scanf("%d", &kembali);
-    
+
     if(kembali==1){
         system("cls");
         menuProgram();
@@ -898,7 +902,7 @@ void produkKedai(){
     printf("|  4  | Es Kopi \t| 3000    |\n");
     printf("|  5  | Es Buah \t| 5000    |\n");
     printf("===================================\n");
-    
+
     printf("\n      KEDAI PEMERSATU BANGSA\n");
     printf("       -- DAFTAR CEMILAN --\n\n");
     printf("===================================\n");

@@ -2,15 +2,15 @@
 #include <time.h> // Header dalam C untuk memanipulasi waktu
 
 //Deklarasi variabel yang digunakan dalam fungsi ini
-int h1, h2, h3, h4, h5;
-int j1=0, j2=0, j3=0, j4=0, j5=0;
-int t1=0, t2=0, t3=0, t4=0, t5=0;
-int m1, m2, m3, m4, m5;
-int j6=0, j7=0, j8=0, j9=0, j10=0;
-int t6=0, t7=0, t8=0, t9=0, t10=0;
-int c1, c2, c3, c4, c5;
-int j11=0, j12=0, j13=0, j14=0, j15=0;
-int t11=0, t12=0, t13=0, t14=0, t15=0;
+int hrg_mknn1, hrg_mknn2, hrg_mknn3, hrg_mknn4, hrg_mknn5;
+int qtt_mknn1, qtt_mknn2, qtt_mknn3, qtt_mknn4, qtt_mknn5;
+int ttl_mknn1, ttl_mknn2, ttl_mknn3, ttl_mknn4, ttl_mknn5;
+int hrg_mnm1, hrg_mnm2, hrg_mnm3, hrg_mnm4, hrg_mnm5;
+int qtt_mnm1, qtt_mnm2, qtt_mnm3, qtt_mnm4, qtt_mnm5;
+int ttl_mnm1, ttl_mnm2, ttl_mnm3, ttl_mnm4, ttl_mnm5;
+int hrg_cmln1, hrg_cmln2, hrg_cmln3, hrg_cmln4, hrg_cmln5;
+int qtt_cmln1, qtt_cmln2, qtt_cmln3, qtt_cmln4, qtt_cmln5 
+int ttl_cmln1, ttl_cmln2, ttl_cmln3, ttl_cmln4, ttl_cmln5;
 int discount;
 int harga;
 int harga_akhir;
@@ -23,6 +23,7 @@ char alamat[50];
 char telepon[15];
 char supplier[50];
 int kembali;
+int programTamu;
 
 //Deklarasi fungsi yang digunakan dalam program ini
 void loginAdmin();
@@ -40,7 +41,7 @@ float transaksiPembayaran();
 float transaksiKembalian();
 float laporanTransaksi();
 void tentangKami();
-
+float menuTamu();
 
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main(){
@@ -92,12 +93,17 @@ void headerMenu(){
 // Tgl   : 09-12-2020                               Tgl: 09-12-2020      //
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
+// Versi : 1.1                                      Rev. 1               //
+// Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
 //=======================================================================//
+
 void loginAdmin(){
     char usrnm[5], pass[12];
     int status = 0;
     int salah = 0;
-    char nama;
+    char nama[20];
     char konfirmasiAkun;
 
     printf ("Sudah Punya Akun? Login Disini! (Y/N)");
@@ -110,16 +116,30 @@ void loginAdmin(){
         printf ("Password : ");
         scanf ("%s", &pass);
 
-        if (strcmp (usrnm, "admin")==0 && strcmp (pass, "12345")==0){
+        if (strcmp (usrnm, "Medhiko")==0 && strcmp (pass, "2005551044")==0){
             system ("cls");
-            menuProgram();
             printf ("Selamat Datang, %s\n", usrnm);
+            menuProgram();
+        }else if (strcmp (usrnm, "Surya")==0 && strcmp (pass, "2005551151")==0){
+            system ("cls");
+            printf ("Selamat Datang, %s\n", usrnm);
+            menuProgram();
+        }else if (strcmp (usrnm, "Kris")==0 && strcmp (pass, "2005551087")==0){
+            system ("cls");
+            printf ("Selamat Datang, %s\n", usrnm);
+            menuProgram();
         }else {
             system ("cls");
             printf ("Username atau Password yang Anda Masukkan Salah!\n");
+            printf ("Perhatikan Penggunaan Capslock!\n");
             goto Login;
         }
-    return 0;
+    }else if (konfirmasiAkun == 'N' || konfirmasiAkun =='n'){
+            printf ("Anda Akan Masuk Sebagai Tamu\n");
+            printf ("Masukkan Nama Depan Anda : ");
+            scanf ("%s", &nama);
+            printf ("\nSelamat Datang, %s\n", nama);
+            menuTamu();
     }
 }
 
@@ -135,11 +155,16 @@ void loginAdmin(){
 //                  dan harga yang terdapat dalam Kedai Pemersatu Bangsa //
 //                                                                       //
 // Versi : 1.0                                      Rev. 0               //
-// Tgl   : 01-12-2020                               Tgl: 01-12-2020      //
+// Tgl   : 12-12-2020                               Tgl: 12-12-2020      //
 // Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
-// Tgl  : 02-12-2020                                Rev. 1               //
+// Versi : 2.0                                      Rev. 1               //
+// Tgl  : 02-12-2020                                Tgl: 02-12-2020      //
 // A.A. Krisnha Wirayudha - 2005551087                                   //
+// Kelas B                                                               //
+// Versi : 2.1                                      Rev. 2               //
+// Tgl  : 19-12-2020                                Tgl: 19-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
 float daftarMenu(){
@@ -180,39 +205,35 @@ float daftarMenu(){
 
         switch(makanan) { //kontrol percabangan switch case
 
-            case 1 :
-                    h1=6500;
-                    printf (" ==> Nasi Telur \t: @ Rp.%d\n", h1);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j1);
-                    t1=j1*h1;
+             case 1 :
+                    hrg_mknn1=6500;
+                    printf (" ==> Nasi Telur \t: @ Rp.%d\n", hrg_mknn1);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mknn1);
+                    ttl_mknn1=qtt_mknn1*hrg_mknn1;
                     break;
-
             case 2 :
-                    h2=8500;
-                    printf (" ==> Nasi Lele \t\t: @ Rp.%d\n", h2);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j2);
-                    t2=j2*h2;
+                    hrg_mknn2=8500;
+                    printf (" ==> Nasi Lele \t\t: @ Rp.%d\n", hrg_mknn2);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mknn2);
+                    ttl_mknn2=qtt_mknn2*hrg_mknn2;
                     break;
-
             case 3 :
-                    h3=8000;
-                    printf (" ==> Nasi Goreng \t: @ Rp.%d\n", h3);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j3);
-                    t3=j3*h3;
+                    hrg_mknn3=8000;
+                    printf (" ==> Nasi Goreng \t: @ Rp.%d\n", hrg_mknn3);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mknn3);
+                    ttl_mknn3=qtt_mknn3*hrg_mknn3;
                     break;
-
             case 4 :
-                    h4=7500;
-                    printf (" ==> Nasi Liwet \t: @ Rp.%d\n", h4);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j4);
-                    t4=j4*h4;
+                    hrg_mknn4=7500;
+                    printf (" ==> Nasi Liwet \t: @ Rp.%d\n", hrg_mknn4);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mknn4);
+                    ttl_mknn4=qtt_mknn4*hrg_mknn4;
                     break;
-
             case 5 :
-                    h5=9000;
-                    printf (" ==> Nasi Ayam \t\t: @ Rp.%d\n", h5);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j5);
-                    t5=j5*h5;
+                    hrg_mknn5=9000;
+                    printf (" ==> Nasi Ayam \t\t: @ Rp.%d\n", hrg_mknn5);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mknn5);
+                    ttl_mknn5=qtt_mknn5*hrg_mknn5;
                     break;
 
             default:
@@ -241,40 +262,35 @@ float daftarMenu(){
         switch(minuman) {
 
             case 1 :
-                    m1=2000;
-                    printf (" ==> Es Teh \t\t: @ Rp.%d\n", m1);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j6);
-                    t6=j6*m1;
+                    hrg_mnm1=2000;
+                    printf (" ==> Es Teh \t\t: @ Rp.%d\n", hrg_mnm1);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mnm1);
+                    ttl_mnm1=qtt_mnm1*hrg_mnm1;
                     break;
-
             case 2 :
-                    m2=2500;
-                    printf (" ==> Es jeruk \t\t: @ Rp.%d\n", m2);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j7);
-                    t7=j7*m2;
+                    hrg_mnm2=2500;
+                    printf (" ==> Es jeruk \t\t: @ Rp.%d\n", hrg_mnm2);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mnm2);
+                    ttl_mnm2=qtt_mnm2*hrg_mnm2;
                     break;
-
             case 3 :
-                    m3=3500;
-                    printf (" ==> Es Susu \t\t: @ Rp.%d\n", m3);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j8);
-                    t8=j8*m3;
+                    hrg_mnm3=3500;
+                    printf (" ==> Es Susu \t\t: @ Rp.%d\n", hrg_mnm3);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mnm3);
+                    ttl_mnm3=qtt_mnm3*hrg_mnm3;
                     break;
-
             case 4 :
-                    m4=3000;
-                    printf (" ==> Es Kopi \t\t: @ Rp.%d\n", m4);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j9);
-                    t9=j9*m4;
+                    hrg_mnm4=3000;
+                    printf (" ==> Es Kopi \t\t: @ Rp.%d\n", hrg_mnm4);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mnm4);
+                    ttl_mnm4=qtt_mnm4*hrg_mnm4;
                     break;
-
             case 5 :
-                    m5=5000;
-                    printf (" ==> Es Buah \t\t: @ Rp.%d\n", m5);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j10);
-                    t10=j10*m5;
+                    hrg_mnm5=5000;
+                    printf (" ==> Es Buah \t\t: @ Rp.%d\n", hrg_mnm5);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_mnm5);
+                    ttl_mnm5=qtt_mnm5*hrg_mnm5;
                     break;
-
             default:
                 printf(" Error..!!!, Menu no.%d tidak ada dalam daftar\n", minuman);
                 printf(" ==> Silakan input kembali\n");
@@ -301,41 +317,35 @@ float daftarMenu(){
         switch(cemilan) {
 
             case 1 :
-                    c1=6000;
-                    printf (" ==> Kentang Goreng \t: @ Rp.%d\n", c1);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j11);
-                    t11=j11*c1;
+                    hrg_cmln1=6000;
+                    printf (" ==> Kentang Goreng \t: @ Rp.%d\n", hrg_cmln1);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln1);
+                    ttl_cmln1=qtt_cmln1*hrg_cmln1;
                     break;
-
-
             case 2 :
-                    c2=5000;
-                    printf (" ==> Tahu Goreng Isi \t\t: @ Rp.%d\n", c2);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j12);
-                    t12=j12*c2;
+                    hrg_cmln2=5000;
+                    printf (" ==> Tahu Goreng Isi \t\t: @ Rp.%d\n", hrg_cmln2);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln2);
+                    ttl_cmln2=qtt_cmln2*hrg_cmln2;
                     break;
-
             case 3 :
-                    c3=5000;
-                    printf (" ==> Tahu Bacem \t\t: @ Rp.%d\n", c3);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j13);
-                    t13=j13*c3;
+                    hrg_cmln3=5000;
+                    printf (" ==> Cumi Goreng Tepung \t\t: @ Rp.%d\n", hrg_cmln3);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln3);
+                    ttl_cmln3=qtt_cmln3*hrg_cmln3;
                     break;
-
             case 4 :
-                    c4=5000;
-                    printf (" ==> Tempe Bacem \t\t: @ Rp.%d\n", c4);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j14);
-                    t14=j14*c4;
+                    hrg_cmln4=5000;
+                    printf (" ==> Tempe Bacem \t\t: @ Rp.%d\n", hrg_cmln4);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln4);
+                    ttl_cmln4=qtt_cmln4*hrg_cmln4;
                     break;
-
             case 5 :
-                    c5=5000;
-                    printf (" ==> Perkedel \t\t: @ Rp.%d\n", c5);
-                    printf (" Jumlah pesanan \t: "); scanf("%d", &j15);
-                    t15=j15*c5;
+                    hrg_cmln5=5000;
+                    printf (" ==> Perkedel \t\t: @ Rp.%d\n", hrg_cmln5);
+                    printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln5);
+                    ttl_cmln5=qtt_cmln5*hrg_cmln5;
                     break;
-
             default:
                 printf(" Error..!!!, Menu no.%d tidak ada dalam daftar\n", cemilan);
                 printf(" ==> Silakan input kembali\n");
@@ -365,69 +375,69 @@ float daftarMenu(){
         printf("|Nama Pesanan \t\t\t|  Harga \t| Jumlah |    Total\t|\n");
         printf("+=======================================================================+\n");
 
-        if(j1>0){
-            printf("Nasi Telur\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h1, j1, t1);
+        if(qtt_mknn1>0){
+            printf("|Nasi Telur\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
         }else{}
 
-        if(j2>0){
-            printf("Nasi Lele\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h2, j2, t2);
+        if(qtt_mknn2>0){
+            printf("|Nasi Lele\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
         }else{}
 
-        if(j3>0){
-            printf("Nasi Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h3, j3, t3);
+        if(qtt_mknn3>0){
+            printf("|Nasi Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
         }else{}
 
-        if(j4>0){
-            printf("Nasi Liwet\t\t\t|Rp.%d\t|   %d\t |  Rp.%d\t|\n", h4, j4, t4);
+        if(qtt_mknn4>0){
+            printf("|Nasi Liwet\t\t\t|Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
         }else{}
 
-        if(j5>0){
-            printf("Nasi Ayam\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", h5, j5, t5);
+        if(qtt_mknn5>0){
+            printf("|Nasi Ayam\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
         }else{}
 
-        if(j6>0){
-            printf("Es Teh\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m1, j6, t6);
+        if(qtt_mnm1>0){
+            printf("|Es Teh\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
         }else{}
 
-        if(j7>0){
-            printf("Es Jeruk\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m2, j7, t7);
+        if(qtt_mnm2>0){
+            printf("|Es Jeruk\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
         }else{}
 
-        if(j8>0){
-            printf("Es Susu\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m3, j8, t8);
+        if(qtt_mnm3>0){
+            printf("|Es Susu\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
         }else{}
 
-        if(j9>0){
-            printf("Es Kopi\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m4, j9, t9);
+        if(qtt_mnm4>0){
+            printf("|Es Kopi\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
         }else{}
 
-        if(j10>0){
-            printf("Es Buah\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", m5, j10, t10);
+        if(qtt_mnm5>0){
+            printf("|Es Buah\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
         }else{}
 
-        if(j11>0){
-            printf("Kentang Gorengt\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c1, j11, t11);
+        if(qtt_cmln1>0){
+            printf("|Kentang Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
         }else{}
 
-        if(j12>0){
-            printf("Tahu Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c2, j12, t12);
+        if(qtt_cmln2>0){
+            printf("|Tahu Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
         }else{}
 
-        if(j13>0){
-            printf("Tahu Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c3, j13, t13);
+        if(qtt_cmln3>0){
+            printf("|Tahu Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
         }else{}
 
-        if(j14>0){
-            printf("Tempe Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c4, j14, t14);
+        if(qtt_cmln4>0){
+            printf("|Tempe Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
         }else{}
 
-        if(j15>0){
-            printf("Perkedel\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", c5, j15, t15);
+        if(qtt_cmln5>0){
+            printf("|Perkedel\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
         }else{}
 
         printf("+=======================================================================+\n\n");
         printf("+=======================================================================+\n");
-        total=t1+t2+t3+t4+t5+t6+t7+t8+t9+t10+t11+t12+t13+t14+t15;
+        total=ttl_mknn1+ttl_mknn2+ttl_mknn3+ttl_mknn4+ttl_mknn5+ttl_mnm1+ttl_mnm2+ttl_mnm3+ttl_mnm4+ttl_mnm5+ttl_cmln1+ttl_cmln2+ttl_cmln3+ttl_cmln4+ttl_cmln5;
         printf("|Harga \t\t\t\t\t\t: \tRp.%d   \t|\n", total);
         printf("+=======================================================================+\n\n");
 
@@ -801,6 +811,57 @@ float menuProgram(){
     }
 }
 
+//=========================Fungsi Menu Tamu==============================//
+//=======================================================================//
+// Nama Fungsi    : Menu Tamu                                            //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan Menu Khusus Untuk Tamu                   //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//=======================================================================//
+
+float menuTamu(){
+    printf("+=======================================+\n");
+    printf("|        Program Kasir Milenium         |\n");
+    printf("+=======================================+\n");
+    printf("| 1. | Produk\t\t\t\t|\n");
+    printf("| 2. | About Us\t\t\t\t|\n");
+    printf("+=======================================+\n");
+    printf(" pilihan anda :");
+    scanf("%d", &programTamu);
+    system("cls");
+
+    if(programTamu==1){
+        headerMenu();
+        produkKedai();
+    }
+    else if(programTamu==2){
+        headerMenu();
+        tentangKami();
+    }
+    printf("\n+=======================================+\n");
+    printf("|       Kembali ke Menu Program?        |\n");
+    printf("+=======================================+\n");
+    printf("| 1. | Kembali\t\t\t\t|\n");
+    printf("| 2. | Selesai\t\t\t\t|\n");
+    printf("+=======================================+\n");
+    printf(" pilihan anda :");
+    scanf("%d", &kembali);
+    if(kembali==1){
+        system("cls");
+        menuTamu();
+    }
+    else if(kembali==2){
+        printf("+============================================+\n");
+        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
+        printf("+============================================+\n");
+    }
+}
+
 //=========================Fungsi Produk Kedai===========================//
 //=======================================================================//
 // Nama Fungsi    : Produk Kedai                                         //
@@ -864,20 +925,21 @@ void produkKedai(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
+
 void tentangKami(){
-    printf ("\t\t\t\t KASIR MILENIUM\n");
-    printf ("================================================================================\n");
+    printf ("\n");
+    printf ("================================================================================");
     printf ("\t\t\t\t    ABOUT US\n");
-    printf ("================================================================================\n");
-    printf ("\t\t\t\t   DEVELOPER : \n\n");
+    printf ("================================================================================\n\n");
     printf ("A.A. Krisnha Wirayudha \t I Gusti Made Agung Ary Surya Persada \t Medhiko Biraja\n");
-    printf ("      2005551087                      2005551151                   2005551044  \n\n");
+    printf ("      2005551087                       2005551151                  2005551044  \n\n");
     printf ("   Kami merupakan Mahasiswa Universitas Udayana dari Fakultas Teknik, Jurusan\n");
     printf ("    Teknologi Informasi. Program ini kami buat bersama untuk memenuhi tugas \n");
     printf ("\t\t  akhir semester dari Mata Kuliah Pemrograman. \n\n");
     printf ("    Program ini ditujukan untuk Usaha Kecil Menengah (UKM) yang baru memulai\n");
     printf ("\tusaha agar rekap penjualan yang dihasilkan setiap harinya menjadi\n");
-    printf ("\t\t\tlebih tertata dan lebih efisien.\n\n");
+    printf ("\t\t\tlebih tertata dan lebih efisien.\n\n\n");
+    printf ("================================================================================\n");
 }
 
 //===========================Fungsi Supllier=============================//

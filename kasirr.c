@@ -787,12 +787,15 @@ float menuProgram(){
         daftarMenu();
     }
     else if(program==2){
+        headerMenu();
         produkKedai();
     }
     else if(program==3){
-        dataSupplier();
+        headerMenu();
+        menuSupplier();
     }
     else if(program==4){
+        headerMenu();
         tentangKami();
     }
     printf("\n+=======================================+\n");
@@ -946,6 +949,48 @@ void tentangKami(){
     printf ("================================================================================\n");
 }
 
+//=========================Fungsi Menu Supplier==========================//
+//=======================================================================//
+// Nama Fungsi    : Menu Supplier                                        //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan Menu Supplier                            //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//=======================================================================//
+
+void menuSupplier()
+{
+    int pilihanSupplier;
+
+    printf("================================\n");
+    printf("|  No |           Menu         |\n");
+    printf("|=====|========================|\n");
+    printf("|  1  | Menambah Data Supplier |\n");
+    printf("|  2  | Membaca Data Supplier  |\n");
+    printf("|  3  | Kembali Ke Menu Awal   |\n");
+    printf("|  4  | Selesai                |\n");
+    printf("================================\n");
+    printf(" pilihan anda :");
+    scanf("%d", &pilihanSupplier);
+    system("cls");
+
+    if(pilihanSupplier == 1){
+        dataSupplier();
+    }else if (pilihanSupplier == 2){
+        readSupplier();
+    }else if (pilihanSupplier == 3){
+        menuProgram();
+    }else if (pilihanSupplier == 4){
+        printf("+============================================+\n");
+        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
+        printf("+============================================+\n");
+    }
+}
+
 //===========================Fungsi Supllier=============================//
 //=======================================================================//
 // Nama Fungsi    : Supllier                                             //
@@ -956,6 +1001,11 @@ void tentangKami(){
 // Versi : 1.0                                      Rev. 0               //
 // Tgl   : 18-12-2020                               Tgl: 18-12-2020      //
 // Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//                                                                       //
+// Versi : 1.1                                      Rev. 1               //
+// Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
 void dataSupplier(){
@@ -970,6 +1020,26 @@ void dataSupplier(){
     scanf("%s", &alamat);
     printf("Sukses menambah data!\n\n");
 
+    printf("\n+=======================================+\n");
+    printf("|       Kembali ke Menu Program?        |\n");
+    printf("+=======================================+\n");
+    printf("| 1. | Kembali Ke Menu Supplier         |\n");
+    printf("| 2. | Kembali Ke Menu Home             |\n");
+    printf("| 3. | Selesai\t\t\t\t|\n");
+    printf("+=======================================+\n");
+    printf(" pilihan anda :");
+    scanf("%d", &kembali);
+
+    if(kembali == 1){
+        menuSupplier();
+    }else if (kembali == 2){
+        menuProgram();
+    }else if (kembali == 3){
+        printf("+============================================+\n");
+        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
+        printf("+============================================+\n");
+        exit (1);
+    }
     fileSupplier();
 }
 
@@ -996,4 +1066,55 @@ void fileSupplier(){
     fprintf(fPointer,"> Alamat\t\t: %s\n\n", alamat);
 
     fclose(fPointer);
+}
+
+//========================Fungsi Read Supllier===========================//
+//=======================================================================//
+// Nama Fungsi    : Read Supllier                                        //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Membaca Seluruh Data Supplier yang Telah Tersimpan   //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//=======================================================================//
+
+void readSupplier()
+{
+    char buff[255];
+    FILE *fptr;
+
+    if((fptr = fopen("Supplier.txt", "r"))== NULL){
+        printf("Error! File Tidak Ditemukan");
+        exit (1);
+    }
+
+    printf("Berikut Adalah List Data Beberapa Supplier Aktif\n\n");
+    while(fgets(buff, sizeof(buff), fptr)){
+        printf("%s", buff);
+    }
+    fclose (fptr);
+
+    printf("\n+=======================================+\n");
+    printf("|       Kembali ke Menu Program?        |\n");
+    printf("+=======================================+\n");
+    printf("| 1. | Kembali Ke Menu Supplier         |\n");
+    printf("| 2. | Kembali Ke Menu Home             |\n");
+    printf("| 3. | Selesai\t\t\t\t|\n");
+    printf("+=======================================+\n");
+    printf(" pilihan anda :");
+    scanf("%d", &kembali);
+
+    if(kembali == 1){
+        menuSupplier();
+    }else if (kembali == 2){
+        menuProgram();
+    }else if (kembali == 3){
+        printf("+============================================+\n");
+        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
+        printf("+============================================+\n");
+        exit (1);
+    }
 }

@@ -826,7 +826,8 @@ float menuProgram(){
     printf("| 1. | Kasir Kedai Pemersatu Bangsa\t|\n");
     printf("| 2. | Produk\t\t\t\t|\n");
     printf("| 3. | Supplier\t\t\t\t|\n");
-    printf("| 4. | About Us\t\t\t\t|\n");
+    printf("| 4. | Laporan Penjualan\t\t|\n");
+    printf("| 5. | About Us\t\t\t\t|\n");
     printf("+=======================================+\n");
     printf(" pilihan anda :");
     scanf("%d", &program);
@@ -844,6 +845,9 @@ float menuProgram(){
         menuSupplier();
     }
     else if(program==4){
+        laporanPenjualan();
+    }
+    else if(program==5){
         headerProgram();
         tentangKami();
     }
@@ -1069,6 +1073,7 @@ void dataSupplier(){
     scanf("%s", &telepon);
     printf("> Alamat\t\t: ");
     scanf("%s", &alamat);
+    fileSupplier();
     printf("Sukses menambah data!\n\n");
 
     printf("\n+=======================================+\n");
@@ -1090,7 +1095,6 @@ void dataSupplier(){
         closeProgram();
         exit (1);
     }
-    fileSupplier();
 }
 
 //========================Fungsi File Supllier===========================//
@@ -1111,8 +1115,8 @@ void fileSupplier(){
     fPointer = fopen("Supplier.txt", "a");
 
     fprintf(fPointer,"> Jenis Supplier\t: %s\n", supplier);
-    fprintf(fPointer,"> Nama\t\t: %s\n", nama);
-    fprintf(fPointer,"> No Telpon\t: %s\n", telepon);
+    fprintf(fPointer,"> Nama\t\t\t: %s\n", nama);
+    fprintf(fPointer,"> No Telpon\t\t: %s\n", telepon);
     fprintf(fPointer,"> Alamat\t\t: %s\n\n", alamat);
 
     fclose(fPointer);
@@ -1130,8 +1134,7 @@ void fileSupplier(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-void readSupplier()
-{
+void readSupplier(){
     char buff[255];
     FILE *fptr;
 
@@ -1225,4 +1228,33 @@ void closeProgram(){
     printf("+===============================================================================+\n");
     printf ("\t\t\t   %s\n", asctime (Sys_T));
 
+}
+
+//======================Fungsi Laporan Penjualan=========================//
+//=======================================================================//
+// Nama Fungsi    : Laporan Penjualan                                    //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan data dari file Report Transaksi          //
+//                  Pembelian.txt ke layar                               //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 23-12-2020                               Tgl: 23-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//=======================================================================//
+void laporanPenjualan(){
+    char buff[255];
+    FILE *fptr;
+
+    if((fptr = fopen("Report Transaksi Pembelian.txt", "r"))== NULL){
+        printf("Error! File Tidak Ditemukan");
+        exit (1);
+    }
+
+    printf("Berikut Adalah List Data Laporan Penjualan\n\n");
+    while(fgets(buff, sizeof(buff), fptr)){
+        printf("%s", buff);
+    }
+    fclose (fptr);
 }

@@ -28,20 +28,23 @@ int programTamu;
 //Deklarasi fungsi yang digunakan dalam program ini
 void loginAdmin();
 void headerMenu();
-float menuProgram();
 float daftarMenu();
-void produkKedai();
-void dataSupplier();
-void fileSupplier();
-void tentangKami();
 float mendapatkanDiskon();
 float potonganHarga();
 float hargaAkhir();
 float transaksiPembayaran();
 float transaksiKembalian();
 float laporanTransaksi();
-void tentangKami();
+float menuProgram();
 float menuTamu();
+void produkKedai();
+void tentangKami();
+void menuSupplier();
+void dataSupplier();
+void fileSupplier();
+void readSupplier();
+void headerProgram();
+void closeProgram();
 
 //Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
 int main(){
@@ -76,7 +79,7 @@ void headerMenu(){
     printf ("\t\t2005551151 - I Gusti Made Agung Ary Surya Persada\n");
     printf ("\t\t\t2005551087 - A.A. Krisnha Wirayudha\n");
     printf ("\t\t\t      %s", asctime (Sys_T));
-    printf ("================================================================================");
+    printf ("================================================================================\n");
 }
 
 //==========================Fungsi Login Admin===========================//
@@ -104,6 +107,8 @@ void loginAdmin(){
     char nama[20];
     char konfirmasiAkun;
 
+    headerProgram();
+    
     printf ("Sudah Punya Akun? Login Disini! (Y/N)");
     scanf ("%c", &konfirmasiAkun);
 
@@ -322,25 +327,25 @@ float daftarMenu(){
                     break;
             case 2 :
                     hrg_cmln2=5000;
-                    printf (" ==> Tahu Goreng Isi \t\t: @ Rp.%d\n", hrg_cmln2);
+                    printf (" ==> Tahu Goreng Isi \t: @ Rp.%d\n", hrg_cmln2);
                     printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln2);
                     ttl_cmln2=qtt_cmln2*hrg_cmln2;
                     break;
             case 3 :
                     hrg_cmln3=5000;
-                    printf (" ==> Cumi Goreng Tepung \t\t: @ Rp.%d\n", hrg_cmln3);
+                    printf (" ==> Cumi Goreng Tepung \t: @ Rp.%d\n", hrg_cmln3);
                     printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln3);
                     ttl_cmln3=qtt_cmln3*hrg_cmln3;
                     break;
             case 4 :
                     hrg_cmln4=5000;
-                    printf (" ==> Tempe Bacem \t\t: @ Rp.%d\n", hrg_cmln4);
+                    printf (" ==> Tempe Bacem \t: @ Rp.%d\n", hrg_cmln4);
                     printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln4);
                     ttl_cmln4=qtt_cmln4*hrg_cmln4;
                     break;
             case 5 :
                     hrg_cmln5=5000;
-                    printf (" ==> Perkedel \t\t: @ Rp.%d\n", hrg_cmln5);
+                    printf (" ==> Perkedel \t: @ Rp.%d\n", hrg_cmln5);
                     printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln5);
                     ttl_cmln5=qtt_cmln5*hrg_cmln5;
                     break;
@@ -813,6 +818,8 @@ float laporanTransaksi(){
 // Kelas B                                                               //
 //=======================================================================//
 float menuProgram(){
+    headerProgram();
+    
     printf("+=======================================+\n");
     printf("|        Program Kasir Milenium         |\n");
     printf("+=======================================+\n");
@@ -834,13 +841,13 @@ float menuProgram(){
         produkKedai();
     }
     else if(program==3){
-        headerMenu();
         menuSupplier();
     }
     else if(program==4){
-        headerMenu();
+        headerProgram();
         tentangKami();
     }
+    
     printf("\n+=======================================+\n");
     printf("|       Kembali ke Menu Program?        |\n");
     printf("+=======================================+\n");
@@ -849,15 +856,13 @@ float menuProgram(){
     printf("+=======================================+\n");
     printf(" pilihan anda :");
     scanf("%d", &kembali);
-
+    system("cls");
+    
     if(kembali==1){
-        system("cls");
         menuProgram();
     }
     else if(kembali==2){
-        printf("+============================================+\n");
-        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
-        printf("+============================================+\n");
+        closeProgram();
         exit (1);
     }
 }
@@ -875,6 +880,8 @@ float menuProgram(){
 // Kelas B                                                               //
 //=======================================================================//
 float menuTamu(){
+    headerProgram();
+    
     printf("+=======================================+\n");
     printf("|        Program Kasir Milenium         |\n");
     printf("+=======================================+\n");
@@ -890,9 +897,10 @@ float menuTamu(){
         produkKedai();
     }
     else if(programTamu==2){
-        headerMenu();
+        headerProgram();
         tentangKami();
     }
+    
     printf("\n+=======================================+\n");
     printf("|       Kembali ke Menu Program?        |\n");
     printf("+=======================================+\n");
@@ -901,14 +909,13 @@ float menuTamu(){
     printf("+=======================================+\n");
     printf(" pilihan anda :");
     scanf("%d", &kembali);
+    system("cls");
+    
     if(kembali==1){
-        system("cls");
         menuTamu();
     }
     else if(kembali==2){
-        printf("+============================================+\n");
-        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
-        printf("+============================================+\n");
+        closeProgram();
         exit (1);
     }
 }
@@ -977,10 +984,10 @@ void produkKedai(){
 // Kelas B                                                               //
 //=======================================================================//
 void tentangKami(){
-    printf ("\n");
     printf ("================================================================================\n");
     printf ("\t\t\t\t    ABOUT US\n");
-    printf ("================================================================================\n\n");
+    printf ("================================================================================\n");
+    printf ("\t\t\t\t Developed By : \n\n");
     printf ("A.A. Krisnha Wirayudha \t I Gusti Made Agung Ary Surya Persada \t Medhiko Biraja\n");
     printf ("      2005551087                       2005551151                  2005551044  \n\n");
     printf ("   Kami merupakan Mahasiswa Universitas Udayana dari Fakultas Teknik, Jurusan\n");
@@ -1004,8 +1011,9 @@ void tentangKami(){
 // Medhiko Biraja - 2005551044                                           //
 // Kelas B                                                               //
 //=======================================================================//
-void menuSupplier()
-{
+void menuSupplier(){
+    headerMenu();
+    
     int pilihanSupplier;
 
     printf("================================\n");
@@ -1021,15 +1029,15 @@ void menuSupplier()
     system("cls");
 
     if(pilihanSupplier == 1){
+        headerMenu();
         dataSupplier();
     }else if (pilihanSupplier == 2){
+        headerMenu();
         readSupplier();
     }else if (pilihanSupplier == 3){
         menuProgram();
     }else if (pilihanSupplier == 4){
-        printf("+============================================+\n");
-        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
-        printf("+============================================+\n");
+        closeProgram();
         exit (1);
     }
 }
@@ -1072,15 +1080,14 @@ void dataSupplier(){
     printf("+=======================================+\n");
     printf(" pilihan anda :");
     scanf("%d", &kembali);
-
+    system("cls");
+    
     if(kembali == 1){
         menuSupplier();
     }else if (kembali == 2){
         menuProgram();
     }else if (kembali == 3){
-        printf("+============================================+\n");
-        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
-        printf("+============================================+\n");
+        closeProgram();
         exit (1);
     }
     fileSupplier();
@@ -1148,15 +1155,74 @@ void readSupplier()
     printf("+=======================================+\n");
     printf(" pilihan anda :");
     scanf("%d", &kembali);
-
+    system("cls");
+    
     if(kembali == 1){
         menuSupplier();
     }else if (kembali == 2){
         menuProgram();
     }else if (kembali == 3){
-        printf("+============================================+\n");
-        printf("| Terimakasih Telah Menggunakan Program Kami |\n");
-        printf("+============================================+\n");
+        closeProgram();
         exit (1);
     }
+}
+
+//========================Fungsi Header Program==========================//
+//=======================================================================//
+// Nama Fungsi    : Header Program                                       //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Memberikan header pada setiap halaman menu program   //
+//                  Kasir Milenium                                       //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 23-12-2020                               Tgl: 23-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//=======================================================================//
+void headerProgram(){
+    struct tm *Sys_T;
+    time_t Tval;
+    Tval = time (NULL);
+    Sys_T = localtime (&Tval);
+
+    printf("+===============================================================================+\n");
+    printf("|   +++++++ +++                                                  +   + +   +    |\n");
+    printf("|     +++++ +++++                SELAMAT DATANG                   +  + + + +    |\n");
+    printf("|        ++ +++                 -KASIR MILENIUM-                    ++ +   +    |\n");
+    printf("|        ++ ++                        2020                        +  + +   +    |\n");
+    printf("|         + +                                                   +    + +   +    |\n");
+    printf("+===============================================================================+\n");
+    printf ("\t\t\t   %s\n", asctime (Sys_T));
+
+}
+
+//====================== ==Fungsi Close Program==========================//
+//=======================================================================//
+// Nama Fungsi    : Close Program                                        //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan Terimakasih Telah Menggunakan Program    //
+//                  Kami setelah selesai menggunakan program ini         //
+//                                                                       //
+// Versi : 1.0                                      Rev. 0               //
+// Tgl   : 23-12-2020                               Tgl: 23-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
+//=======================================================================//
+void closeProgram(){
+    struct tm *Sys_T;
+    time_t Tval;
+    Tval = time (NULL);
+    Sys_T = localtime (&Tval);
+
+    printf("+===============================================================================+\n");
+    printf("|   +++++++ +++                   TERIMAKASIH                    +   + +   +    |\n");
+    printf("|     +++++ +++++        TELAH MENGGUNAKAN PROGRAM KAMI           +  + + + +    |\n");
+    printf("|        ++ +++               --------------------                  ++ +   +    |\n");
+    printf("|        ++ ++                  -KASIR MILENIUM-                  +  + +   +    |\n");
+    printf("|         + +                         2020                      +    + +   +    |\n");
+    printf("+===============================================================================+\n");
+    printf ("\t\t\t   %s\n", asctime (Sys_T));
+
 }

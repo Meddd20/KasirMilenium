@@ -1,7 +1,14 @@
+//=======================================================================//
+//                      Definisi dan Penyertaan Lib                      //
+//=======================================================================//
 #include <stdio.h> //Header Standar Input/Output dalam C
 #include <time.h> // Header dalam C untuk memanipulasi waktu
+#include <string.h> //Header untuk melakukan manipulasi string
+#include <stdlib.h> //Header untuk operasi pembanding dan operasi konversi
 
-//Deklarasi variabel yang digunakan dalam fungsi ini
+//=======================================================================//
+//          Deklarasi variabel yang digunakan dalam fungsi ini           //
+//=======================================================================//
 int hrg_mknn1, hrg_mknn2, hrg_mknn3, hrg_mknn4, hrg_mknn5;
 int qtt_mknn1, qtt_mknn2, qtt_mknn3, qtt_mknn4, qtt_mknn5;
 int ttl_mknn1, ttl_mknn2, ttl_mknn3, ttl_mknn4, ttl_mknn5;
@@ -25,7 +32,9 @@ char supplier[50];
 int kembali;
 int programTamu;
 
-//Deklarasi fungsi yang digunakan dalam program ini
+//=======================================================================//
+//          Deklarasi fungsi yang digunakan dalam program ini            //
+//=======================================================================//
 void loginAdmin();
 void headerMenu();
 float daftarMenu();
@@ -46,7 +55,10 @@ void readSupplier();
 void headerProgram();
 void closeProgram();
 
-//Merupakan fungsi utama dalam program yang akan dieksekusi pertama kali saat program dijalankan
+//=======================================================================//
+//       Merupakan fungsi utama dalam program yang akan dieksekusi       //
+//                pertama kali saat program dijalankan                   //
+//=======================================================================//
 int main(){
     loginAdmin();
 }
@@ -495,7 +507,7 @@ float mendapatkanDiskon(){
 float potonganHarga(){
     harga = discount*total/100;
     printf("+=======================================================================+\n");
-    printf("|Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t|\n", harga);
+    printf(" Diskon Terakumulasikan Sebesar \t\t: \tRp.%d  \t\n", harga);
     printf("+=======================================================================+\n");
 
 hargaAkhir();
@@ -539,7 +551,7 @@ float transaksiPembayaran(){
     printf(" Uang Pembayaran \t\t\t\t: \tRp.");
     scanf("%d",&uang);
     if(uang<harga_akhir){
-        printf(" Uang tidak cukup!");
+        printf(" Uang tidak cukup!\n");
             goto Transaksi;
         }
         else{}
@@ -564,13 +576,13 @@ float transaksiKembalian(){
     printf("|Kembalian \t\t\t\t\t:   \tRp.%d  \t|\n", kembalian);
     printf("+=======================================================================+\n");
 
+    laporanTransaksi();
+    
     printf("+=======================================================================+\n");
     printf("|\t\t     Terima Kasih Atas Kunjungan Anda\t\t\t|\n");
     printf("|\t\t   Kami Nanti Kunjungan Anda Berikutnya\t\t\t|\n");
     printf("|\t\t\t         MERDEKA!\t\t\t\t|\n");
     printf("+=======================================================================+\n");
-
-laporanTransaksi();
 }
 
 //========================Fungsi Laporan Transaksi=======================//
@@ -607,6 +619,7 @@ float laporanTransaksi(){
     Tval = time (NULL);
     Sys_T = localtime (&Tval);
 
+    FILE *fptr;
     FILE * fPointer;
     fPointer = fopen("Struk Transaksi Pembelian.txt", "w");
     
@@ -690,7 +703,7 @@ float laporanTransaksi(){
         fprintf(fPointer,"+=======================================================================+\n");
         fprintf(fPointer,"|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
         fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t|\n", harga);
+        fprintf(fPointer," Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t \n", harga);
         fprintf(fPointer,"+=======================================================================+\n");
         fprintf(fPointer,"+=======================================================================+\n");
         fprintf(fPointer,"|Total Harga yang Harus Dibayar Sebesar \t: \tRp.%d  \t|\n", harga_akhir);
@@ -787,7 +800,7 @@ float laporanTransaksi(){
         fprintf(fPointer,"+=======================================================================+\n");
         fprintf(fPointer,"|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
         fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t|\n", harga);
+        fprintf(fPointer," Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t \n", harga);
         fprintf(fPointer,"+=======================================================================+\n");
         fprintf(fPointer,"+=======================================================================+\n");
         fprintf(fPointer,"|Total Harga yang Harus Dibayar Sebesar \t: \tRp.%d  \t|\n", harga_akhir);
@@ -802,7 +815,7 @@ float laporanTransaksi(){
         fprintf(fPointer,"|\t\t\t         MERDEKA!\t\t\t\t|\n");
         fprintf(fPointer,"+=======================================================================+\n\n");
 
-    return 0;
+    fclose(fPointer);
 }
 
 //=========================Fungsi Menu Program===========================//
@@ -845,6 +858,7 @@ float menuProgram(){
         menuSupplier();
     }
     else if(program==4){
+        headerMenu();
         laporanPenjualan();
     }
     else if(program==5){
@@ -935,43 +949,48 @@ float menuTamu(){
 // Tgl   : 18-12-2020                               Tgl: 18-12-2020      //
 // Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
+//                                                                       //
+// Versi : 1.1                                      Rev. 1               //
+// Tgl   : 26-12-2020                               Tgl: 26-12-2020      //
+// Agung Ary Surya Persada - 2005551151                                  //
+// Kelas B                                                               //
 //=======================================================================//
 void produkKedai(){
-    printf("\n     KEDAI PEMERSATU BANGSA\n");
-    printf("      -- DAFTAR MAKANAN --\n\n");
-    printf("===================================\n");
-    printf("|  No |     Makanan     |  Harga  |\n");
-    printf("|=====|=================|=========|\n");
-    printf("|  1  | Nasi Telur\t| 6500    |\n");
-    printf("|  2  | Nasi Lele\t| 8500    |\n");
-    printf("|  3  | Nasi Goreng\t| 8000    |\n");
-    printf("|  4  | Nasi Liwet\t| 7500    |\n");
-    printf("|  5  | Nasi Ayam\t| 9000    |\n");
-    printf("===================================\n");
+    printf("\n\t\t\t      KEDAI PEMERSATU BANGSA\n");
+    printf("\t\t\t       -- DAFTAR MAKANAN --\n\n");
+    printf("\t\t\t+=================================+\n");
+    printf("\t\t\t|  No |     Makanan     |  Harga  |\n");
+    printf("\t\t\t|=====+=================+=========|\n");
+    printf("\t\t\t|  1  | Nasi Telur\t| 6500    |\n");
+    printf("\t\t\t|  2  | Nasi Lele\t| 8500    |\n");
+    printf("\t\t\t|  3  | Nasi Goreng\t| 8000    |\n");
+    printf("\t\t\t|  4  | Nasi Liwet\t| 7500    |\n");
+    printf("\t\t\t|  5  | Nasi Ayam\t| 9000    |\n");
+    printf("\t\t\t+=================================+\n");
 
-    printf("\n      KEDAI PEMERSATU BANGSA\n");
-    printf("       -- DAFTAR MINUMAN --\n\n");
-    printf("===================================\n");
-    printf("|  No |     Minuman     |  Harga  |\n");
-    printf("|=====|=================|=========|\n");
-    printf("|  1  | Es Teh\t\t| 2000    |\n");
-    printf("|  2  | Es Jeruk \t| 2500    |\n");
-    printf("|  3  | Es Susu \t| 3500    |\n");
-    printf("|  4  | Es Kopi \t| 3000    |\n");
-    printf("|  5  | Es Buah \t| 5000    |\n");
-    printf("===================================\n");
+    printf("\n\t\t\t       KEDAI PEMERSATU BANGSA\n");
+    printf("\t\t\t        -- DAFTAR MINUMAN --\n\n");
+    printf("\t\t\t+=================================+\n");
+    printf("\t\t\t|  No |     Minuman     |  Harga  |\n");
+    printf("\t\t\t|=====+=================+=========|\n");
+    printf("\t\t\t|  1  | Es Teh\t\t| 2000    |\n");
+    printf("\t\t\t|  2  | Es Jeruk \t| 2500    |\n");
+    printf("\t\t\t|  3  | Es Susu \t| 3500    |\n");
+    printf("\t\t\t|  4  | Es Kopi \t| 3000    |\n");
+    printf("\t\t\t|  5  | Es Buah \t| 5000    |\n");
+    printf("\t\t\t+=================================+\n");
 
-    printf("\n      KEDAI PEMERSATU BANGSA\n");
-    printf("       -- DAFTAR CEMILAN --\n\n");
-    printf("===================================\n");
-    printf("|  No |     Cemilan     |  Harga  |\n");
-    printf("|=====|=================|=========|\n");
-    printf("|  1  | Kentang Goreng\t| 6000    |\n");
-    printf("|  2  | Tahu Goreng Isi\t| 5000    |\n");
-    printf("|  3  | Tahu Bacem\t| 5000    |\n");
-    printf("|  4  | Tempe Bacem\t| 5000    |\n");
-    printf("|  5  | Perkedel\t| 5000    |\n");
-    printf("===================================\n");
+    printf("\n\t\t\t       KEDAI PEMERSATU BANGSA\n");
+    printf("\t\t\t        -- DAFTAR CEMILAN --\n\n");
+    printf("\t\t\t+=================================+\n");
+    printf("\t\t\t|  No |     Cemilan     |  Harga  |\n");
+    printf("\t\t\t|=====+=================+=========|\n");
+    printf("\t\t\t|  1  | Kentang Goreng\t| 6000    |\n");
+    printf("\t\t\t|  2  | Tahu Goreng Isi\t| 5000    |\n");
+    printf("\t\t\t|  3  | Tahu Bacem\t| 5000    |\n");
+    printf("\t\t\t|  4  | Tempe Bacem\t| 5000    |\n");
+    printf("\t\t\t|  5  | Perkedel\t| 5000    |\n");
+    printf("\t\t\t+=================================+\n");
 }
 
 //========================Fungsi Tentang Kami============================//

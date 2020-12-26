@@ -619,7 +619,6 @@ float laporanTransaksi(){
     Tval = time (NULL);
     Sys_T = localtime (&Tval);
 
-    FILE *fptr;
     FILE * fPointer;
     fPointer = fopen("Struk Transaksi Pembelian.txt", "w");
     

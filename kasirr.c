@@ -345,7 +345,7 @@ float daftarMenu(){
                     break;
             case 3 :
                     hrg_cmln3=5000;
-                    printf (" ==> Cumi Goreng Tepung \t: @ Rp.%d\n", hrg_cmln3);
+                    printf (" ==> Tahu Bacem \t: @ Rp.%d\n", hrg_cmln3);
                     printf (" Jumlah pesanan \t: "); scanf("%d", &qtt_cmln3);
                     ttl_cmln3=qtt_cmln3*hrg_cmln3;
                     break;
@@ -863,6 +863,8 @@ float menuProgram(){
     else if(program==5){
         headerProgram();
         tentangKami();
+    }else{
+        menuProgram();
     }
     
     printf("\n+=======================================+\n");
@@ -877,10 +879,11 @@ float menuProgram(){
     
     if(kembali==1){
         menuProgram();
-    }
-    else if(kembali==2){
+    }else if(kembali==2){
         closeProgram();
         exit (1);
+    }else{
+        menuProgram();
     }
 }
 
@@ -916,6 +919,8 @@ float menuTamu(){
     else if(programTamu==2){
         headerProgram();
         tentangKami();
+    }else{
+        menuTamu();
     }
     
     printf("\n+=======================================+\n");
@@ -934,6 +939,8 @@ float menuTamu(){
     else if(kembali==2){
         closeProgram();
         exit (1);
+    }else{
+        menuTamu();
     }
 }
 
@@ -1061,6 +1068,8 @@ void menuSupplier(){
     }else if (pilihanSupplier == 4){
         closeProgram();
         exit (1);
+    }else{
+        menuSupplier();
     }
 }
 
@@ -1112,6 +1121,8 @@ void dataSupplier(){
     }else if (kembali == 3){
         closeProgram();
         exit (1);
+    }else{
+        menuSupplier();
     }
 }
 
@@ -1185,6 +1196,8 @@ void readSupplier(){
     }else if (kembali == 3){
         closeProgram();
         exit (1);
+    }else{
+        menuSupplier();
     }
 }
 

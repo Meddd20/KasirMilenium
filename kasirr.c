@@ -54,6 +54,7 @@ void fileSupplier();
 void readSupplier();
 void headerProgram();
 void closeProgram();
+void menuKonfirmasi();
 
 //=======================================================================//
 //       Merupakan fungsi utama dalam program yang akan dieksekusi       //
@@ -119,8 +120,8 @@ void loginAdmin(){
     char nama[20];
     char konfirmasiAkun;
 
-    headerProgram();
-    
+    headerMenu();
+
     printf ("Sudah Punya Akun? Login Disini! (Y/N)");
     scanf ("%c", &konfirmasiAkun);
 
@@ -510,7 +511,7 @@ float potonganHarga(){
     printf(" Diskon Terakumulasikan Sebesar \t\t: \tRp.%d  \t\n", harga);
     printf("+=======================================================================+\n");
 
-hargaAkhir();
+    hargaAkhir();
 }
 
 //==========================Fungsi Harga Akhir===========================//
@@ -531,7 +532,8 @@ float hargaAkhir(){
     printf("+=======================================================================+\n");
     printf("|Total Harga yang Harus Dibayar Sebesar \t: \tRp.%d  \t|\n", harga_akhir);
     printf("+=======================================================================+\n");
-transaksiPembayaran();
+
+    transaksiPembayaran();
 }
 
 //=====================Fungsi Transaksi Pembayaran=======================//
@@ -555,7 +557,8 @@ float transaksiPembayaran(){
             goto Transaksi;
         }
         else{}
-transaksiKembalian();
+
+    transaksiKembalian();
 }
 
 //=====================Fungsi Transaksi Kembalian========================//
@@ -577,12 +580,8 @@ float transaksiKembalian(){
     printf("+=======================================================================+\n");
 
     laporanTransaksi();
-    
-    printf("+=======================================================================+\n");
-    printf("|\t\t     Terima Kasih Atas Kunjungan Anda\t\t\t|\n");
-    printf("|\t\t   Kami Nanti Kunjungan Anda Berikutnya\t\t\t|\n");
-    printf("|\t\t\t         MERDEKA!\t\t\t\t|\n");
-    printf("+=======================================================================+\n");
+
+    closeProgram();
 }
 
 //========================Fungsi Laporan Transaksi=======================//
@@ -612,6 +611,11 @@ float transaksiKembalian(){
 // Tgl   : 19-12-2020                               Tgl: 19-12-2020      //
 // Agung Ary Surya Persada - 2005551151                                  //
 // Kelas B                                                               //
+//                                                                       //
+// Versi : 3.0                                      Rev. 4               //
+// Tgl   : 07-01-2021                               Tgl: 07-01-2021      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
 //=======================================================================//
 float laporanTransaksi(){
     struct tm *Sys_T;
@@ -621,7 +625,7 @@ float laporanTransaksi(){
 
     FILE * fPointer;
     fPointer = fopen("Struk Transaksi Pembelian.txt", "w");
-    
+
         fprintf(fPointer,"+=======================================================================+\n");
         fprintf(fPointer,"\t\t        KEDAI PEMERSATU BANGSA\n");
         fprintf(fPointer,"\t\t   Jl. Pantai Berawa No. 888, Bali\n");
@@ -718,101 +722,80 @@ float laporanTransaksi(){
         fprintf(fPointer,"+=======================================================================+\n\n");
 
    fPointer = fopen("Report Transaksi Pembelian.txt", "a");
-    
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"\t\t        KEDAI PEMERSATU BANGSA\n");
-        fprintf(fPointer,"\t\t   Jl. Pantai Berawa No. 888, Bali\n");
-        fprintf(fPointer,"\t\t       %s", asctime (Sys_T));
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"\t\t\t    STRUK BELANJA \n\n");
-        fprintf(fPointer,"+=======================================================================+\n\n");
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|Nama Pesanan \t\t\t|  Harga \t| Jumlah |    Total\t|\n");
-        fprintf(fPointer,"+=======================================================================+\n");
 
+        fprintf(fPointer,"+========================================================+\n");
+        fprintf(fPointer,"|Nama Pesanan \t\t\t| Jumlah |    Total\t|\n");
+        fprintf(fPointer,"+========================================================+\n");
 
         if(qtt_mknn1>0){
-          fprintf(fPointer,"|Nasi Telur\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn1, qtt_mknn1, ttl_mknn1);
+          fprintf(fPointer,"|Nasi Telur\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mknn1, ttl_mknn1);
         }else{}
 
         if(qtt_mknn2>0){
-            fprintf(fPointer,"|Nasi Lele\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn2, qtt_mknn2, ttl_mknn2);
+            fprintf(fPointer,"|Nasi Lele\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mknn2, ttl_mknn2);
         }else{}
 
         if(qtt_mknn3>0){
-            fprintf(fPointer,"|Nasi Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn3, qtt_mknn3, ttl_mknn3);
+            fprintf(fPointer,"|Nasi Goreng\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mknn3, ttl_mknn3);
         }else{}
 
         if(qtt_mknn4>0){
-            fprintf(fPointer,"|Nasi Liwet\t\t\t|Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn4, qtt_mknn4, ttl_mknn4);
+            fprintf(fPointer,"|Nasi Liwet\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mknn4, ttl_mknn4);
         }else{}
 
         if(qtt_mknn5>0){
-            fprintf(fPointer,"|Nasi Ayam\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mknn5, qtt_mknn5, ttl_mknn5);
+            fprintf(fPointer,"|Nasi Ayam\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mknn5, ttl_mknn5);
         }else{}
 
         if(qtt_mnm1>0){
-           fprintf(fPointer,"|Es Teh\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm1, qtt_mnm1, ttl_mnm1);
+           fprintf(fPointer,"|Es Teh\t\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mnm1, ttl_mnm1);
         }else{}
 
         if(qtt_mnm2>0){
-           fprintf(fPointer,"|Es Jeruk\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm2, qtt_mnm2, ttl_mnm2);
+           fprintf(fPointer,"|Es Jeruk\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mnm2, ttl_mnm2);
         }else{}
 
         if(qtt_mnm3>0){
-           fprintf(fPointer,"|Es Susu\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm3, qtt_mnm3, ttl_mnm3);
+           fprintf(fPointer,"|Es Susu\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mnm3, ttl_mnm3);
         }else{}
 
         if(qtt_mnm4>0){
-           fprintf(fPointer,"|Es Kopi\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm4, qtt_mnm4, ttl_mnm4);
+           fprintf(fPointer,"|Es Kopi\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mnm4, ttl_mnm4);
         }else{}
 
         if(qtt_mnm5>0){
-           fprintf(fPointer,"|Es Buah\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_mnm5, qtt_mnm5, ttl_mnm5);
+           fprintf(fPointer,"|Es Buah\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_mnm5, ttl_mnm5);
         }else{}
 
         if(qtt_cmln1>0){
-          fprintf(fPointer,"|Kentang Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln1, qtt_cmln1, ttl_cmln1);
+          fprintf(fPointer,"|Kentang Goreng\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_cmln1, ttl_cmln1);
         }else{}
 
         if(qtt_cmln2>0){
-           fprintf(fPointer,"|Tahu Goreng\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln2, qtt_cmln2, ttl_cmln2);
+           fprintf(fPointer,"|Tahu Goreng\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_cmln2, ttl_cmln2);
         }else{}
 
         if(qtt_cmln3>0){
-            fprintf(fPointer,"|Tahu Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln3, qtt_cmln3, ttl_cmln3);
+            fprintf(fPointer,"|Tahu Bacem\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_cmln3, ttl_cmln3);
         }else{}
 
         if(qtt_cmln4>0){
-            fprintf(fPointer,"|Tempe Bacem\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln4, qtt_cmln4, ttl_cmln4);
+            fprintf(fPointer,"|Tempe Bacem\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_cmln4, ttl_cmln4);
         }else{}
 
         if(qtt_cmln5>0){
-            fprintf(fPointer,"|Perkedel\t\t\t| Rp.%d\t|   %d\t |  Rp.%d\t|\n", hrg_cmln5, qtt_cmln5, ttl_cmln5);
+            fprintf(fPointer,"|Perkedel\t\t\t|   %d\t |  Rp.%d\t|\n", qtt_cmln5, ttl_cmln5);
         }else{}
 
-        fprintf(fPointer,"+=======================================================================+\n\n");
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|Harga \t\t\t\t\t\t: \tRp.%d   \t|\n", total);
-        fprintf(fPointer,"+=======================================================================+\n\n");
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|Berhasil Mendapatkan Potongan Harga Sebesar \t: \t%d persen!\t|\n", discount);
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer," Diskon Terakumulasikan Sebesar \t\t: \tRp.%d\t\t \n", harga);
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|Total Harga yang Harus Dibayar Sebesar \t: \tRp.%d  \t|\n", harga_akhir);
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer," Uang Pembayaran \t\t\t\t: \tRp.%d\n", uang);
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|Kembalian \t\t\t\t\t:   \tRp.%d  \t|\n", kembalian);
-        fprintf(fPointer,"+=======================================================================+\n\n");
-        fprintf(fPointer,"+=======================================================================+\n");
-        fprintf(fPointer,"|\t\t     Terima Kasih Atas Kunjungan Anda\t\t\t|\n");
-        fprintf(fPointer,"|\t\t   Kami Nanti Kunjungan Anda Berikutnya\t\t\t|\n");
-        fprintf(fPointer,"|\t\t\t         MERDEKA!\t\t\t\t|\n");
-        fprintf(fPointer,"+=======================================================================+\n\n");
+        fprintf(fPointer,"+========================================================+\n");
+        fprintf(fPointer,"|Total Harga\t\t\t      \t |  Rp.%d\t|\n", total);
+        fprintf(fPointer,"+========================================================+\n");
+        fprintf(fPointer,"|Diskon  \t\t\t      \t |  Rp.%d\t|\n", harga);
+        fprintf(fPointer,"+========================================================+\n");
+        fprintf(fPointer,"|Total Harga\t\t\t      \t |  Rp.%d\t|\n", harga_akhir);
+        fprintf(fPointer,"+========================================================+\n");
+        fprintf(fPointer,"\n");
+        fprintf(fPointer,"\n");
 
     fclose(fPointer);
 }
@@ -831,7 +814,7 @@ float laporanTransaksi(){
 //=======================================================================//
 float menuProgram(){
     headerProgram();
-    
+
     printf("+=======================================+\n");
     printf("|        Program Kasir Milenium         |\n");
     printf("+=======================================+\n");
@@ -850,7 +833,6 @@ float menuProgram(){
         daftarMenu();
     }
     else if(program==2){
-        headerMenu();
         produkKedai();
     }
     else if(program==3){
@@ -861,30 +843,12 @@ float menuProgram(){
         laporanPenjualan();
     }
     else if(program==5){
-        headerProgram();
         tentangKami();
     }else{
         menuProgram();
     }
-    
-    printf("\n+=======================================+\n");
-    printf("|       Kembali ke Menu Program?        |\n");
-    printf("+=======================================+\n");
-    printf("| 1. | Kembali\t\t\t\t|\n");
-    printf("| 2. | Selesai\t\t\t\t|\n");
-    printf("+=======================================+\n");
-    printf(" pilihan anda :");
-    scanf("%d", &kembali);
-    system("cls");
-    
-    if(kembali==1){
-        menuProgram();
-    }else if(kembali==2){
-        closeProgram();
-        exit (1);
-    }else{
-        menuProgram();
-    }
+
+    menuKonfirmasi();
 }
 
 //=========================Fungsi Menu Tamu==============================//
@@ -901,7 +865,7 @@ float menuProgram(){
 //=======================================================================//
 float menuTamu(){
     headerProgram();
-    
+
     printf("+=======================================+\n");
     printf("|        Program Kasir Milenium         |\n");
     printf("+=======================================+\n");
@@ -922,26 +886,8 @@ float menuTamu(){
     }else{
         menuTamu();
     }
-    
-    printf("\n+=======================================+\n");
-    printf("|       Kembali ke Menu Program?        |\n");
-    printf("+=======================================+\n");
-    printf("| 1. | Kembali\t\t\t\t|\n");
-    printf("| 2. | Selesai\t\t\t\t|\n");
-    printf("+=======================================+\n");
-    printf(" pilihan anda :");
-    scanf("%d", &kembali);
-    system("cls");
-    
-    if(kembali==1){
-        menuTamu();
-    }
-    else if(kembali==2){
-        closeProgram();
-        exit (1);
-    }else{
-        menuTamu();
-    }
+
+    menuKonfirmasi();
 }
 
 //=========================Fungsi Produk Kedai===========================//
@@ -1042,7 +988,7 @@ void tentangKami(){
 //=======================================================================//
 void menuSupplier(){
     headerMenu();
-    
+
     int pilihanSupplier;
 
     printf("================================\n");
@@ -1103,27 +1049,7 @@ void dataSupplier(){
     fileSupplier();
     printf("Sukses menambah data!\n\n");
 
-    printf("\n+=======================================+\n");
-    printf("|       Kembali ke Menu Program?        |\n");
-    printf("+=======================================+\n");
-    printf("| 1. | Kembali Ke Menu Supplier         |\n");
-    printf("| 2. | Kembali Ke Menu Home             |\n");
-    printf("| 3. | Selesai\t\t\t\t|\n");
-    printf("+=======================================+\n");
-    printf(" pilihan anda :");
-    scanf("%d", &kembali);
-    system("cls");
-    
-    if(kembali == 1){
-        menuSupplier();
-    }else if (kembali == 2){
-        menuProgram();
-    }else if (kembali == 3){
-        closeProgram();
-        exit (1);
-    }else{
-        menuSupplier();
-    }
+    menuKonfirmasi();
 }
 
 //========================Fungsi File Supllier===========================//
@@ -1178,27 +1104,7 @@ void readSupplier(){
     }
     fclose (fptr);
 
-    printf("\n+=======================================+\n");
-    printf("|       Kembali ke Menu Program?        |\n");
-    printf("+=======================================+\n");
-    printf("| 1. | Kembali Ke Menu Supplier         |\n");
-    printf("| 2. | Kembali Ke Menu Home             |\n");
-    printf("| 3. | Selesai\t\t\t\t|\n");
-    printf("+=======================================+\n");
-    printf(" pilihan anda :");
-    scanf("%d", &kembali);
-    system("cls");
-    
-    if(kembali == 1){
-        menuSupplier();
-    }else if (kembali == 2){
-        menuProgram();
-    }else if (kembali == 3){
-        closeProgram();
-        exit (1);
-    }else{
-        menuSupplier();
-    }
+    menuKonfirmasi();
 }
 
 //========================Fungsi Header Program==========================//
@@ -1288,4 +1194,40 @@ void laporanPenjualan(){
         printf("%s", buff);
     }
     fclose (fptr);
+}
+
+//======================Fungsi Menu Konfirmasi===========================//
+//=======================================================================//
+// Nama Fungsi    : Menu Konfirmasi                                      //
+// Input Argumen  : -                                                    //
+// Output Argumen : -                                                    //
+// Deskripsi      : Menampilkan data dari file Report Transaksi          //
+//                  Pembelian.txt ke layar                               //
+//                                                                       //
+// Versi : 0                                        Rev. 0               //
+// Tgl   : 07-01-2021                               Tgl: 07-01-2021      //
+// Medhiko Biraja - 2005551044                                           //
+// Kelas B                                                               //
+//=======================================================================//
+
+void menuKonfirmasi(){
+    printf("\n+=======================================+\n");
+    printf("|       Kembali ke Menu Program?        |\n");
+    printf("+=======================================+\n");
+    printf("| 1. | Kembali Ke Menu Awal             |\n");
+    printf("| 2. | Selesai\t\t\t\t|\n");
+    printf("+=======================================+\n");
+    printf(" pilihan anda :");
+    scanf("%d", &kembali);
+    system("cls");
+
+    if(kembali == 1){
+        menuProgram();
+    }else if (kembali == 2){
+        closeProgram();
+        exit (1);
+    }else{
+        printf ("Masukkan Pilihan Konfirmasi Melanjutkan Dengan Benar!\n");
+        menuKonfirmasi();
+    }
 }

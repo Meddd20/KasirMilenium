@@ -4,15 +4,15 @@ Pertumbuhan teknologi saat ini membolehkan para pengusaha untuk mempunyai suatu 
 
 Cara Penggunaan :
 
- > Unduh file KasirMilenium.zip 
+•	Unduh file KasirMilenium.zip 
 
- > Ekstrak file tersebut ke dalam satu folder
- 
-    >> Jika ingin langsung menggunakannya, dapat membuka file KasirMilenium.exe
- 
-    >> Jika ingin mengubah file, dapat membuka file KasirMilenium.c
- 
- > Selamat Mencoba
+•	Ekstrak file tersebut ke dalam satu folder
+
+•	Jika ingin langsung menggunakannya, dapat membuka file KasirMilenium.exe
+
+•	Jika ingin mengubah file, dapat membuka file KasirMilenium.c
+
+•	Selamat Mencoba
 
 Dibuat Oleh :
 

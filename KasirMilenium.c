@@ -2960,7 +2960,8 @@ void readAbsen(){
 // Nama Fungsi    : Harap Tunggu                                         //
 // Input Argumen  : -                                                    //
 // Output Argumen : -                                                    //
-// Deskripsi      : Menampilkan harap tunggu saat selesai menggunakan    //
+// Deskripsi      : Menampilkan kata harap tunggu saat selesai 		 //
+// 		    menggunakan    					 //
 //                  suatu menu                                           //
 //                                                                       //
 // Versi : 1.0                                      Rev. 0               //

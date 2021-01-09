@@ -2258,18 +2258,19 @@ void dataCustomer(){
         }
     system("cls");
 }
-
 //============================Fungsi Menu Owner==========================//
 //=======================================================================//
 // Nama Fungsi    : Menu Owner                                           //
 // Input Argumen  : int program                                          //
 // Output Argumen : -                                                    //
-// Deskripsi      : Menampilkan Menu Owner                               //
+// Deskripsi      : Untuk Menampilkan Menu Owner                         //
 //                                                                       //
 // Versi : 1.0                                      Rev. 0               //
 // Tgl   : 09-01-2021                               Tgl: 09-01-2021      //
 // Agung Ary Surya Persada - 2005551151                                  //
-// Kelas B                                                               //
+// Kelas B								 //
+// A.A. Krisnha Wirayudha - 2005551087		    Rev. 1		 //
+// Kelas B					    tgl: 09-01-2021	 //
 //=======================================================================//
 void menuOwner(){
     struct tm *Sys_T;
@@ -2331,7 +2332,7 @@ void menuOwner(){
         tentangKami();
         menuKonfirmasiOwner();
     }else{
-        printf ("\t\t\t\tMasukkan Pilihan Konfirmasi Melanjutkan Dengan Benar!");
+        printf ("\t\t\t\tMasukkan Pilihan Konfirmasi Dengan Benar!");
         exit (1);
     }
 
@@ -2421,6 +2422,7 @@ void menuPegawai(){
     }
 
 }
+
 
 //=============================Fungsi Up Pegawai=========================//
 //=======================================================================//

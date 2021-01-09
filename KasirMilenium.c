@@ -27,15 +27,15 @@
 //=======================================================================//
 //          Deklarasi variabel yang digunakan dalam fungsi ini           //
 //=======================================================================//
-int hrg_mknn1, hrg_mknn2, hrg_mknn3, hrg_mknn4, hrg_mknn5;
-int qtt_mknn1, qtt_mknn2, qtt_mknn3, qtt_mknn4, qtt_mknn5;
-int ttl_mknn1, ttl_mknn2, ttl_mknn3, ttl_mknn4, ttl_mknn5;
-int hrg_mnm1, hrg_mnm2, hrg_mnm3, hrg_mnm4, hrg_mnm5;
-int qtt_mnm1, qtt_mnm2, qtt_mnm3, qtt_mnm4, qtt_mnm5;
-int ttl_mnm1, ttl_mnm2, ttl_mnm3, ttl_mnm4, ttl_mnm5;
-int hrg_cmln1, hrg_cmln2, hrg_cmln3, hrg_cmln4, hrg_cmln5;
-int qtt_cmln1, qtt_cmln2, qtt_cmln3, qtt_cmln4, qtt_cmln5;
-int ttl_cmln1, ttl_cmln2, ttl_cmln3, ttl_cmln4, ttl_cmln5;
+int hrg_mknn1, hrg_mknn2, hrg_mknn3, hrg_mknn4, hrg_mknn5; //variabel untuk harga makanan
+int qtt_mknn1, qtt_mknn2, qtt_mknn3, qtt_mknn4, qtt_mknn5; //variabel untuk jumlah makanan
+int ttl_mknn1, ttl_mknn2, ttl_mknn3, ttl_mknn4, ttl_mknn5; //variabel harga * jumlah dari makanan
+int hrg_mnm1, hrg_mnm2, hrg_mnm3, hrg_mnm4, hrg_mnm5; //variabel untuk harga minuman
+int qtt_mnm1, qtt_mnm2, qtt_mnm3, qtt_mnm4, qtt_mnm5; //variabel untuk jumlah minuman
+int ttl_mnm1, ttl_mnm2, ttl_mnm3, ttl_mnm4, ttl_mnm5; //variabel harga * jumlah dari minuman
+int hrg_cmln1, hrg_cmln2, hrg_cmln3, hrg_cmln4, hrg_cmln5; //variabel untuk harga camilan
+int qtt_cmln1, qtt_cmln2, qtt_cmln3, qtt_cmln4, qtt_cmln5; //variabel untuk jumlah camilan
+int ttl_cmln1, ttl_cmln2, ttl_cmln3, ttl_cmln4, ttl_cmln5; //variabel harga * jumlah dari camilan
 int discount;
 int harga;
 int harga_akhir;
@@ -480,7 +480,7 @@ void loginAdmin(){
                 Sleep(100);
             }
         warna(7);
-        if (strcmp (usrnm, "Medhiko")==0 && strcmp (pass, "2005551044")==0){
+        if (strcmp (usrnm, "Meddd")==0 && strcmp (pass, "2005551044")==0){
             absenPegawai();
             system ("cls");
         }else if (strcmp (usrnm, "Surya")==0 && strcmp (pass, "2005551151")==0){
@@ -560,7 +560,7 @@ void loginOwner(){
                 Sleep(100);
             }
         warna(7);
-        if (strcmp (usrnm, "Medhiko")==0 && strcmp (pass, "2005551044")==0){
+        if (strcmp (usrnm, "Meddd")==0 && strcmp (pass, "2005551044")==0){
             system ("cls");
         }else if (strcmp (usrnm, "Surya")==0 && strcmp (pass, "2005551151")==0){
             system ("cls");
